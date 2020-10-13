@@ -58,6 +58,7 @@ class DashboardVC : UIViewController {
             cell.titleLabel.text = model.title
             cell.descriptionLabel.text = model.overview
             cell.movieImageView.kf.setImage(with: model.posterImageUrl)
+            cell.backgroundImageView.kf.setImage(with: model.backdropImageUrl)
         }
         .disposed(by: disposeBag)
         

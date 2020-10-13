@@ -18,6 +18,11 @@ class MovieCell : UITableViewCell {
         return view
     }()
     
+    lazy var blurView: UIVisualEffectView = {
+        let view = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+        return view
+    }()
+    
     lazy var movieImageView: UIImageView = {
         let view = UIImageView()
         view.backgroundColor = .systemGreen
@@ -27,12 +32,15 @@ class MovieCell : UITableViewCell {
     lazy var titleLabel: UILabel = {
         let view = UILabel()        
         view.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        view.textColor = .white
         return view
     }()
     
     lazy var descriptionLabel: UILabel = {
         let view = UILabel()
         view.font = UIFont.systemFont(ofSize: 13, weight: .regular)
+        view.numberOfLines = 0
+        view.textColor = UIColor.white.withAlphaComponent(0.5)
         return view
     }()
     
@@ -44,6 +52,10 @@ class MovieCell : UITableViewCell {
             make.leading.top.trailing.equalTo(contentView)
             make.height.equalTo(150)
             make.bottom.equalTo(contentView).priority(999)
+        }
+        contentView.addSubview(blurView)
+        blurView.snp.makeConstraints { (make) in
+            make.edges.equalTo(backgroundImageView)
         }
         
         contentView.addSubview(movieImageView)
@@ -57,12 +69,15 @@ class MovieCell : UITableViewCell {
         titleLabel.snp.makeConstraints { (make) in
             make.top.equalTo(movieImageView.snp.top).offset(5)
             make.leading.equalTo(movieImageView.snp.trailing).offset(20)
+            make.trailing.equalTo(contentView).inset(20)
         }
         
         contentView.addSubview(descriptionLabel)
         descriptionLabel.snp.makeConstraints { (make) in
             make.top.equalTo(titleLabel.snp.bottom).offset(5)
             make.leading.equalTo(movieImageView.snp.trailing).offset(20)
+            make.trailing.equalTo(contentView).inset(20)
+            make.bottom.lessThanOrEqualTo(contentView).inset(40).priority(999)
         }
         
     }

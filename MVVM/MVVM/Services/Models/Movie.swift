@@ -66,4 +66,13 @@ extension Movie {
         }
         return url
     }
+    var backdropImageUrl: URL? {
+        guard
+            let imageName = backdropPath,
+            let url = URL(string: "https://image.tmdb.org/t/p/w1920_and_h800_multi_faces\(imageName)")
+        else {
+            return nil
+        }
+        return url
+    }
 }
