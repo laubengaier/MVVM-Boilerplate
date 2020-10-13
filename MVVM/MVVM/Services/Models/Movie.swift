@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 public struct Movie : Codable {
     
@@ -16,6 +17,18 @@ public struct Movie : Codable {
     let voteAverage: Float?
     let overview: String?
     let releaseDate: String?
+    
+    var posterImage: UIImage? {
+        guard
+            let imageName = posterPath,
+            let url = URL(string: "https://image.tmdb.org/t/p/w500\(imageName)"),
+            let data = try? Data(contentsOf: url),
+            let image = UIImage(data: data)
+        else {
+            return nil
+        }
+        return image
+    }
     
     enum CodingKeys: String, CodingKey {
         case id

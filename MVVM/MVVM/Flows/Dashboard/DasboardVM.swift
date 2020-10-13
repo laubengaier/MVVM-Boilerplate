@@ -9,18 +9,17 @@ import Foundation
 import RxFlow
 import RxSwift
 import RxCocoa
+import RxRelay
 
 class DashboardVM : Stepper {
     
     let steps = PublishRelay<Step>()
     let services: AppServices
     
-    let data = Observable<[Movie]>.just(
-        [
-            Movie(title: "Se7en", overview: "Goiler Film"),
-            Movie(title: "Mulan", overview: "Nice Film")
-        ]
-    )
+    let data = BehaviorRelay<[Movie]>(value: [
+        Movie(title: "Se7en", overview: "Goiler Film"),
+        Movie(title: "Mulan", overview: "Nice Film")
+    ])
     
     init(services: AppServices) {
         self.services = services
@@ -28,7 +27,10 @@ class DashboardVM : Stepper {
     }
     
     func fetchMovies() {
-        
+//        services
+//        .movieService
+//        .nowPlaying()
+//        .bind(to: data)
     }
     
     func showDetail() {
