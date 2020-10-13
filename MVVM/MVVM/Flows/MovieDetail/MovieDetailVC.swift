@@ -56,8 +56,16 @@ class MovieDetailVC : UIViewController {
             var details = [(String, String)]()
             details.append(("Title", movie.title + " | " + movie.originalTitle))
             details.append(("Overview", movie.overview))
-            details.append(("Tags", movie.tagline))
-            details.append(("Genres", String(movie.genres.map({ $0.name }).joined(separator: ", ")) ))
+            if movie.tagline.count > 0 {
+                details.append(("Tags", movie.tagline))
+            }
+            if movie.genres.count > 0 {
+                details.append(("Genres", String(movie.genres.map({ $0.name }).joined(separator: ", ")) ))
+            }
+            details.append(("Rating", String(format: "%.1f", movie.voteAverage)))
+            if movie.originalLanguage.count > 0 {
+                details.append(("Language", movie.originalLanguage))
+            }
             return .just(details)
         })
         .bind(
