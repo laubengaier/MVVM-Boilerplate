@@ -84,16 +84,9 @@ public class MovieService: MovieServicable {
         return request
         .asObservable()
         .flatMap { (response) -> Observable<Response> in
-            guard 200...299 ~= response.statusCode else {
-                do {
-                    print("Error happened while fetching Now Playing")
-                    let errorResponse = try response.map(MovieError.self)
-                    throw errorResponse
-                } catch {
-                    throw error
-                }
-            }
-            return .just(response)
+            self.dependencies
+                .apiClient
+                .handlePossibleErrors(response: response, errorType: MovieError.self)
         }
         .map(MovieResultWrapper.self)
         .map({ $0.results })
@@ -106,16 +99,9 @@ public class MovieService: MovieServicable {
         return request
         .asObservable()
         .flatMap { (response) -> Observable<Response> in
-            guard 200...299 ~= response.statusCode else {
-                do {
-                    print("Error happened while fetching Now Playing")
-                    let errorResponse = try response.map(MovieError.self)
-                    throw errorResponse
-                } catch {
-                    throw error
-                }
-            }
-            return .just(response)
+            return self.dependencies
+                .apiClient
+                .handlePossibleErrors(response: response, errorType: MovieError.self)
         }
         .map(MovieResultWrapper.self)
         .map({ $0.results })
@@ -128,16 +114,9 @@ public class MovieService: MovieServicable {
         return request
         .asObservable()
         .flatMap { (response) -> Observable<Response> in
-            guard 200...299 ~= response.statusCode else {
-                do {
-                    print("Error happened while fetching Now Playing")
-                    let errorResponse = try response.map(MovieError.self)
-                    throw errorResponse
-                } catch {
-                    throw error
-                }
-            }
-            return .just(response)
+            return self.dependencies
+                .apiClient
+                .handlePossibleErrors(response: response, errorType: MovieError.self)
         }
         .map(MovieDetail.self)
         .asSingle()
