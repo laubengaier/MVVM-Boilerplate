@@ -45,6 +45,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         self.coordinator.coordinate(flow: appFlow, with: AppStepper(withServices: appServices))
 
+        UINavigationBar.appearance().tintColor = .white
+
         Flows.use(appFlow, when: .created) { root in
             window.rootViewController = root
             window.makeKeyAndVisible()
