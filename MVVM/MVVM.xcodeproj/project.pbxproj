@@ -179,13 +179,12 @@
 		DC4800F42535A3CD00C99264 /* MVVM */ = {
 			isa = PBXGroup;
 			children = (
-				6B4275622535B48F00434A5C /* HasProtocols */,
-				6B3524082535AE15002A87DA /* API */,
 				DC4800F52535A3CD00C99264 /* AppDelegate.swift */,
 				DC4800F72535A3CD00C99264 /* SceneDelegate.swift */,
 				DC4801522535A7FF00C99264 /* Services */,
 				DC4801472535A7BF00C99264 /* Flows */,
 				DC4800F92535A3CD00C99264 /* ViewController.swift */,
+				6B4275622535B48F00434A5C /* HasProtocols */,
 				DC48012B2535A4CB00C99264 /* Resources */,
 			);
 			path = MVVM;
@@ -252,7 +251,8 @@
 		DC4801522535A7FF00C99264 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				DC4801942535BA8F00C99264 /* Movies */,
+				6B3524082535AE15002A87DA /* API */,
+				DC4801942535BA8F00C99264 /* Models */,
 				DC4801632535A90D00C99264 /* AppServices.swift */,
 			);
 			path = Services;
@@ -267,12 +267,12 @@
 			path = MovieDetail;
 			sourceTree = "<group>";
 		};
-		DC4801942535BA8F00C99264 /* Movies */ = {
+		DC4801942535BA8F00C99264 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				DC4801982535BADE00C99264 /* Movie.swift */,
 			);
-			path = Movies;
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

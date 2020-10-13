@@ -20,6 +20,10 @@ class DashboardVM : Stepper {
         
     }
     
+    func fetchMovies() {
+        
+    }
+    
     func showDetail() {
         steps.accept(AppStep.movieDetail(id: ""))
     }
