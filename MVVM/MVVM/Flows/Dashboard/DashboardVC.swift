@@ -54,6 +54,15 @@ class DashboardVC : UIViewController {
           cell.textLabel?.text = model
         }
         .disposed(by: disposeBag)
+        
+        tableView
+        .rx
+        .itemSelected
+        .subscribe { [weak self] (index) in
+            self?.viewModel.showDetail()
+        }
+        .disposed(by: disposeBag)
+
     }
     
 }

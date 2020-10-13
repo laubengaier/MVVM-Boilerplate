@@ -31,6 +31,8 @@
 		DC4801772535ABF000C99264 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = DC4801762535ABF000C99264 /* Differentiator */; };
 		DC4801792535ABF000C99264 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = DC4801782535ABF000C99264 /* RxDataSources */; };
 		DC48017F2535AC3F00C99264 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DC48017E2535AC3F00C99264 /* SnapKit */; };
+		DC48018B2535B68C00C99264 /* MovieDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC48018A2535B68C00C99264 /* MovieDetailVM.swift */; };
+		DC4801902535B69200C99264 /* MovieDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC48018F2535B69200C99264 /* MovieDetailVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		DC4801632535A90D00C99264 /* AppServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppServices.swift; sourceTree = "<group>"; };
 		DC4801682535A93700C99264 /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
 		DC48016D2535A93D00C99264 /* DasboardVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DasboardVM.swift; sourceTree = "<group>"; };
+		DC48018A2535B68C00C99264 /* MovieDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailVM.swift; sourceTree = "<group>"; };
+		DC48018F2535B69200C99264 /* MovieDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +179,7 @@
 			children = (
 				DC4801492535A7CF00C99264 /* App */,
 				DC4801482535A7C500C99264 /* Dashboard */,
+				DC4801892535B66A00C99264 /* MovieDetail */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -201,9 +206,26 @@
 		DC4801522535A7FF00C99264 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				DC4801942535BA8F00C99264 /* Movies */,
 				DC4801632535A90D00C99264 /* AppServices.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		DC4801892535B66A00C99264 /* MovieDetail */ = {
+			isa = PBXGroup;
+			children = (
+				DC48018A2535B68C00C99264 /* MovieDetailVM.swift */,
+				DC48018F2535B69200C99264 /* MovieDetailVC.swift */,
+			);
+			path = MovieDetail;
+			sourceTree = "<group>";
+		};
+		DC4801942535BA8F00C99264 /* Movies */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Movies;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,6 +381,8 @@
 				DC48015C2535A87500C99264 /* AppStep.swift in Sources */,
 				DC4801642535A90D00C99264 /* AppServices.swift in Sources */,
 				DC48014B2535A7D700C99264 /* AppFlow.swift in Sources */,
+				DC48018B2535B68C00C99264 /* MovieDetailVM.swift in Sources */,
+				DC4801902535B69200C99264 /* MovieDetailVC.swift in Sources */,
 				DC4801572535A81A00C99264 /* AppStepper.swift in Sources */,
 				DC48016E2535A93D00C99264 /* DasboardVM.swift in Sources */,
 				DC4801692535A93800C99264 /* DashboardVC.swift in Sources */,

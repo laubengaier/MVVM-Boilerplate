@@ -38,6 +38,8 @@ class AppFlow: Flow {
         switch step {
         case .dashboard:
             return navigateToDashboard()
+        case .movieDetail(let id):
+            return navigateToMovieDetail()
         default:
             return .none
         }
@@ -46,6 +48,19 @@ class AppFlow: Flow {
     private func navigateToDashboard() -> FlowContributors {
         let vm = DashboardVM()
         let vc = DashboardVC(viewModel: vm)
+        
+        self.rootViewController.pushViewController(vc, animated: true)
+        return .one(
+            flowContributor: .contribute(
+                withNextPresentable: vc,
+                withNextStepper: vm
+            )
+        )
+    }
+    
+    private func navigateToMovieDetail() -> FlowContributors {
+        let vm = MovieDetailVM()
+        let vc = MovieDetailVC(viewModel: vm)
         
         self.rootViewController.pushViewController(vc, animated: true)
         return .one(

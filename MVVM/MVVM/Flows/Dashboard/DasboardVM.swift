@@ -20,4 +20,8 @@ class DashboardVM : Stepper {
         
     }
     
+    func showDetail() {
+        steps.accept(AppStep.movieDetail(id: ""))
+    }
+    
 }
