@@ -25,4 +25,5 @@ struct AuthPlugin: PluginType {
         var request = request
         request.addValue("Bearer " + token, forHTTPHeaderField: "Authorization")
         return request
+    }
 }

@@ -8,9 +8,17 @@
 import Foundation
 import Moya
 
+
+
 final class APIClient {
     
-    init(){}
+    typealias Dependencies = HasAPIKey
+    
+    let dependencies: Dependencies
+    
+    init(dependencies: Dependencies){
+        self.dependencies = dependencies
+    }
     
     func createProvider<T: APIProvider>(for target: T.Type) -> MoyaProvider<T> {
         let endpointClosure = self.createEndpointClosure(for: target)
@@ -30,9 +38,13 @@ final class APIClient {
     
     private func createEndpointClosure<T: APIProvider>(for target: T.Type) -> MoyaProvider<T>.EndpointClosure {
         let endpointClosure = { (target: T) -> Endpoint in
-            let endpoint = MoyaProvider.defaultEndpointMapping(for: target)
-            let headers = ["Content-Type": "application/json"]
-            return endpoint.adding(newHTTPHeaderFields: headers)
+            let apiKeyQuery: String = "?api_key=\(self.dependencies.apiKey)"
+            let endpoint = Endpoint(url: target.baseURL.absoluteString.appending(target.path + apiKeyQuery),
+                             sampleResponseClosure: { return EndpointSampleResponse.networkResponse(200, target.sampleData)},
+                             method: target.method,
+                             task: target.task,
+                             httpHeaderFields: ["Content-Type": "application/json"])
+            return endpoint
         }
         return endpointClosure
     }
