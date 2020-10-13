@@ -14,3 +14,7 @@ public protocol HasAPIKey {
 public protocol HasAPIClient {
     var apiClient: APIClient { get }
 }
+
+public protocol HasMovieService {
+    var movieService: MovieServicable { get }
+}

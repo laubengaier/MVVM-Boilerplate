@@ -7,6 +7,18 @@
 
 import Foundation
 
-class AppServices {
+
+
+class AppServices: HasMovieService {
     
+    typealias Dependencies = HasAPIClient
+
+    let dependencies: Dependencies
+    
+    let movieService: MovieServicable
+    
+    public init(dependencies: Dependencies) {
+        self.dependencies = dependencies
+        self.movieService = MovieService(dependencies: dependencies)
+    }
 }
