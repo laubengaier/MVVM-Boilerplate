@@ -56,6 +56,7 @@ class DashboardVC : UIViewController {
             guard let cell = cell as? MovieCell else { return }
             cell.titleLabel.text = model.title
             cell.descriptionLabel.text = model.overview
+            cell.movieImageView.image = model.posterImage
         }
         .disposed(by: disposeBag)
         
