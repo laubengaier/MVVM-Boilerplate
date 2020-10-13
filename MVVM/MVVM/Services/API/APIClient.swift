@@ -69,5 +69,4 @@ public class APIClient {
         }
         return requestClosure
     }
-    
 }

@@ -30,6 +30,8 @@ class MovieDetailInfoCell : UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        self.selectionStyle = .none
+        
         contentView.backgroundColor = UIColor(red: 0.12, green: 0.12, blue: 0.12, alpha: 1)
         
         contentView.addSubview(titleLabel)
