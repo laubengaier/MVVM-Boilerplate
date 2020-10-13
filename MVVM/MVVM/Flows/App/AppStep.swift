@@ -10,6 +10,7 @@ import RxFlow
 enum AppStep: Step {
     
     case dashboard
+    case movieList
     case movieDetail(id: Int)
 
 }

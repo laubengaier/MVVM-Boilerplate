@@ -18,8 +18,8 @@ class AppFlow: Flow {
     }
 
     private lazy var rootViewController: UINavigationController = {
-        let viewController = UINavigationController()
-        viewController.navigationBar.prefersLargeTitles = true
+        let viewController = UINavigationController()        
+        viewController.setNavigationBarHidden(true, animated: false)
         return viewController
     }()
 
@@ -41,20 +41,30 @@ class AppFlow: Flow {
             return navigateToDashboard()
         case .movieDetail(let id):
             return navigateToMovieDetail(id: id)
+        default:
+            return .none
         }
     }
 
     private func navigateToDashboard() -> FlowContributors {
-        let vm = DashboardVM(services: services)
-        let vc = DashboardVC(viewModel: vm)
-        
-        self.rootViewController.pushViewController(vc, animated: true)
-        return .one(
-            flowContributor: .contribute(
-                withNextPresentable: vc,
-                withNextStepper: vm
-            )
-        )
+//        let vm = DashboardVM(services: services)
+//        let vc = DashboardVC(viewModel: vm)
+//
+//        self.rootViewController.pushViewController(vc, animated: true)
+//        return .one(
+//            flowContributor: .contribute(
+//                withNextPresentable: vc,
+//                withNextStepper: vm
+//            )
+//        )
+        let dashboardFlow = DashboardFlow(withServices: self.services)
+
+        Flows.use(dashboardFlow, when: .created) { [unowned self] root in
+            self.rootViewController.pushViewController(root, animated: false)
+        }
+
+        return .one(flowContributor: .contribute(withNextPresentable: dashboardFlow,
+                                                         withNextStepper: OneStepper(withSingleStep: AppStep.dashboard)))
     }
     
     private func navigateToMovieDetail(id: Int) -> FlowContributors {
