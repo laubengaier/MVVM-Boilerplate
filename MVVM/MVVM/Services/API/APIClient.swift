@@ -10,7 +10,7 @@ import Moya
 
 
 
-final class APIClient {
+public class APIClient {
     
     typealias Dependencies = HasAPIKey
     

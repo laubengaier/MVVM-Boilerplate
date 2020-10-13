@@ -10,3 +10,7 @@ import Foundation
 public protocol HasAPIKey {
     var apiKey: String { get }
 }
+
+public protocol HasAPIClient {
+    var apiClient: APIClient { get }
+}
