@@ -22,6 +22,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let window = scene.windows.first else { return }
         
+        let factory = DependencyFactory()
+        
+        let dependencies = factory.create()
+        
         self.coordinator.rx.willNavigate.subscribe(onNext: { (flow, step) in
             print("will navigate to flow=\(flow) and step=\(step)")
         }).disposed(by: self.disposeBag)

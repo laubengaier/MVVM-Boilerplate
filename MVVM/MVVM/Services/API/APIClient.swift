@@ -12,12 +12,10 @@ import Moya
 
 public class APIClient {
     
-    typealias Dependencies = HasAPIKey
+    let apiKey: String
     
-    let dependencies: Dependencies
-    
-    init(dependencies: Dependencies){
-        self.dependencies = dependencies
+    init(apiKey: String){
+        self.apiKey = apiKey
     }
     
     func createProvider<T: APIProvider>(for target: T.Type) -> MoyaProvider<T> {
@@ -38,7 +36,7 @@ public class APIClient {
     
     private func createEndpointClosure<T: APIProvider>(for target: T.Type) -> MoyaProvider<T>.EndpointClosure {
         let endpointClosure = { (target: T) -> Endpoint in
-            let apiKeyQuery: String = "?api_key=\(self.dependencies.apiKey)"
+            let apiKeyQuery: String = "?api_key=\(self.apiKey)"
             let endpoint = Endpoint(url: target.baseURL.absoluteString.appending(target.path + apiKeyQuery),
                              sampleResponseClosure: { return EndpointSampleResponse.networkResponse(200, target.sampleData)},
                              method: target.method,
@@ -50,7 +48,7 @@ public class APIClient {
     }
     
     private func createRequestClosure<T: APIProvider>(for target: T.Type) -> MoyaProvider<T>.RequestClosure {
-        let requestClosure = { [weak self] (endpoint: Endpoint, done: @escaping MoyaProvider.RequestResultClosure) -> Void in
+        let requestClosure = { [weak self] (endpoint: Endpoint, done: @escaping MoyaProvider.RequestResultClosure) -> Void in
             // do what ever you want (e.g.: check token)
         }
         return requestClosure
