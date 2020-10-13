@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,13 @@
 		DC4801022535A3CF00C99264 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC4801002535A3CF00C99264 /* LaunchScreen.storyboard */; };
 		DC48010D2535A3CF00C99264 /* MVVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC48010C2535A3CF00C99264 /* MVVMTests.swift */; };
 		DC4801182535A3CF00C99264 /* MVVMUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4801172535A3CF00C99264 /* MVVMUITests.swift */; };
+		DC48012E2535A53300C99264 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DC48012D2535A53300C99264 /* RxSwift */; };
+		DC4801302535A53400C99264 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = DC48012F2535A53400C99264 /* RxCocoa */; };
+		DC4801322535A53400C99264 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = DC4801312535A53400C99264 /* RxRelay */; };
+		DC4801382535A57C00C99264 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = DC4801372535A57C00C99264 /* Moya */; };
+		DC48013A2535A57C00C99264 /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = DC4801392535A57C00C99264 /* ReactiveMoya */; };
+		DC48013C2535A57C00C99264 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = DC48013B2535A57C00C99264 /* RxMoya */; };
+		DC4801422535A59300C99264 /* RxFlow in Frameworks */ = {isa = PBXBuildFile; productRef = DC4801412535A59300C99264 /* RxFlow */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +63,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC48013C2535A57C00C99264 /* RxMoya in Frameworks */,
+				DC4801422535A59300C99264 /* RxFlow in Frameworks */,
+				DC4801322535A53400C99264 /* RxRelay in Frameworks */,
+				DC4801302535A53400C99264 /* RxCocoa in Frameworks */,
+				DC4801382535A57C00C99264 /* Moya in Frameworks */,
+				DC48013A2535A57C00C99264 /* ReactiveMoya in Frameworks */,
+				DC48012E2535A53300C99264 /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,10 +116,7 @@
 				DC4800F52535A3CD00C99264 /* AppDelegate.swift */,
 				DC4800F72535A3CD00C99264 /* SceneDelegate.swift */,
 				DC4800F92535A3CD00C99264 /* ViewController.swift */,
-				DC4800FB2535A3CD00C99264 /* Main.storyboard */,
-				DC4800FE2535A3CF00C99264 /* Assets.xcassets */,
-				DC4801002535A3CF00C99264 /* LaunchScreen.storyboard */,
-				DC4801032535A3CF00C99264 /* Info.plist */,
+				DC48012B2535A4CB00C99264 /* Resources */,
 			);
 			path = MVVM;
 			sourceTree = "<group>";
@@ -128,6 +139,17 @@
 			path = MVVMUITests;
 			sourceTree = "<group>";
 		};
+		DC48012B2535A4CB00C99264 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DC4800FB2535A3CD00C99264 /* Main.storyboard */,
+				DC4800FE2535A3CF00C99264 /* Assets.xcassets */,
+				DC4801002535A3CF00C99264 /* LaunchScreen.storyboard */,
+				DC4801032535A3CF00C99264 /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,6 +166,15 @@
 			dependencies = (
 			);
 			name = MVVM;
+			packageProductDependencies = (
+				DC48012D2535A53300C99264 /* RxSwift */,
+				DC48012F2535A53400C99264 /* RxCocoa */,
+				DC4801312535A53400C99264 /* RxRelay */,
+				DC4801372535A57C00C99264 /* Moya */,
+				DC4801392535A57C00C99264 /* ReactiveMoya */,
+				DC48013B2535A57C00C99264 /* RxMoya */,
+				DC4801412535A59300C99264 /* RxFlow */,
+			);
 			productName = MVVM;
 			productReference = DC4800F22535A3CD00C99264 /* MVVM.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +246,11 @@
 				Base,
 			);
 			mainGroup = DC4800E92535A3CD00C99264;
+			packageReferences = (
+				DC48012C2535A53300C99264 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				DC4801362535A57C00C99264 /* XCRemoteSwiftPackageReference "Moya" */,
+				DC4801402535A59300C99264 /* XCRemoteSwiftPackageReference "RxFlow" */,
+			);
 			productRefGroup = DC4800F32535A3CD00C99264 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -587,6 +623,71 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DC48012C2535A53300C99264 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.1;
+			};
+		};
+		DC4801362535A57C00C99264 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 14.0.0;
+			};
+		};
+		DC4801402535A59300C99264 /* XCRemoteSwiftPackageReference "RxFlow" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxFlow";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.11.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DC48012D2535A53300C99264 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC48012C2535A53300C99264 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		DC48012F2535A53400C99264 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC48012C2535A53300C99264 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		DC4801312535A53400C99264 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC48012C2535A53300C99264 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		DC4801372535A57C00C99264 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC4801362535A57C00C99264 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		DC4801392535A57C00C99264 /* ReactiveMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC4801362535A57C00C99264 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = ReactiveMoya;
+		};
+		DC48013B2535A57C00C99264 /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC4801362535A57C00C99264 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
+		};
+		DC4801412535A59300C99264 /* RxFlow */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC4801402535A59300C99264 /* XCRemoteSwiftPackageReference "RxFlow" */;
+			productName = RxFlow;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DC4800EA2535A3CD00C99264 /* Project object */;
 }
