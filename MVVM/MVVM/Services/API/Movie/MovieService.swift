@@ -35,7 +35,7 @@ extension MovieProvider: APIProvider {
     
     var task: Task {
         switch self {
-        case .nowPlaying: return .requestPlain
+        case .nowPlaying: return .requestParameters(parameters: ["language": "de-DE", "region": "de"], encoding: URLEncoding.queryString)
         }
     }
     
