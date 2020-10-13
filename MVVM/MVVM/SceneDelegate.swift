@@ -22,6 +22,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let window = scene.windows.first else { return }
         
+        // UI Madness
+        UINavigationBar.appearance().barTintColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1)
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        
         let factory = DependencyFactory()
         
         let dependencies = factory.create()
