@@ -96,30 +96,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6B3523F22535AA09002A87DA /* API */ = {
+		6B3524082535AE15002A87DA /* API */ = {
 			isa = PBXGroup;
 			children = (
-				6B3523F92535AA68002A87DA /* Plugins */,
-				6B3523F82535AA61002A87DA /* Provider */,
+				6B35240A2535AE23002A87DA /* Plugins */,
+				6B3524092535AE1D002A87DA /* Provider */,
 				6B3523F32535AA1B002A87DA /* APIClient.swift */,
 			);
-			name = API;
+			path = API;
 			sourceTree = "<group>";
 		};
-		6B3523F82535AA61002A87DA /* Provider */ = {
+		6B3524092535AE1D002A87DA /* Provider */ = {
 			isa = PBXGroup;
 			children = (
 				6B3523FA2535AA9A002A87DA /* APIProvider.swift */,
 			);
-			name = Provider;
+			path = Provider;
 			sourceTree = "<group>";
 		};
-		6B3523F92535AA68002A87DA /* Plugins */ = {
+		6B35240A2535AE23002A87DA /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
 				6B3524022535AACF002A87DA /* AuthPlugin.swift */,
 			);
-			name = Plugins;
+			path = Plugins;
 			sourceTree = "<group>";
 		};
 		DC4800E92535A3CD00C99264 = {
@@ -145,7 +145,7 @@
 		DC4800F42535A3CD00C99264 /* MVVM */ = {
 			isa = PBXGroup;
 			children = (
-				6B3523F22535AA09002A87DA /* API */,
+				6B3524082535AE15002A87DA /* API */,
 				DC4800F52535A3CD00C99264 /* AppDelegate.swift */,
 				DC4800F72535A3CD00C99264 /* SceneDelegate.swift */,
 				DC4800F92535A3CD00C99264 /* ViewController.swift */,
