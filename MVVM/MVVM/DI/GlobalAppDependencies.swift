@@ -15,12 +15,5 @@ public struct AppDependencies: GlobalAppDependencies {
     public var apiClient: APIClient
 }
 
-public protocol DependencyFactoryProtocol {
-    /**
-     Creates each and every dependency we need in our project
-    - Parameter window:Backdrop for the app's UI
-    - Returns: AppDependencies
-     */
-    func create() -> AppDependencies
-}
+
 

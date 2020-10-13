@@ -7,6 +7,15 @@
 
 import Foundation
 
+public protocol DependencyFactoryProtocol {
+    /**
+     Creates each and every dependency we need in our project
+    - Parameter window:Backdrop for the app's UI
+    - Returns: AppDependencies
+     */
+    func create() -> AppDependencies
+}
+
 public class DependencyFactory: DependencyFactoryProtocol {
     
     public init(){}
