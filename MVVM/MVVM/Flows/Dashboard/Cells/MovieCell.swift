@@ -39,7 +39,7 @@ class MovieCell : UITableViewCell {
     lazy var descriptionLabel: UILabel = {
         let view = UILabel()
         view.font = UIFont.systemFont(ofSize: 13, weight: .regular)
-        view.numberOfLines = 0
+        view.numberOfLines = 4
         view.textColor = UIColor.white.withAlphaComponent(0.5)
         return view
     }()
@@ -77,13 +77,20 @@ class MovieCell : UITableViewCell {
             make.top.equalTo(titleLabel.snp.bottom).offset(5)
             make.leading.equalTo(movieImageView.snp.trailing).offset(20)
             make.trailing.equalTo(contentView).inset(20)
-            make.bottom.lessThanOrEqualTo(contentView).inset(40).priority(999)
+            make.bottom.lessThanOrEqualTo(contentView).inset(40)
         }
         
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        titleLabel.text = nil
+        descriptionLabel.text = nil
+        movieImageView.image = nil
     }
     
 }
