@@ -27,7 +27,7 @@ class MovieDetailVC : UIViewController {
         
         title = "Detail"
         view.backgroundColor = .systemPurple
-        navigationItem.largeTitleDisplayMode = .always
+        navigationItem.largeTitleDisplayMode = .never
         
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
