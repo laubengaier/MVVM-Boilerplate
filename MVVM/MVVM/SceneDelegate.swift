@@ -14,7 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     let disposeBag = DisposeBag()
     var window: UIWindow?
     var coordinator = FlowCoordinator()
-    let appServices = AppServices()
+    var appServices: AppServices?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
@@ -26,6 +26,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let dependencies = factory.create()
         
+        self.appServices = AppServices(dependencies: dependencies)
+        
         self.coordinator.rx.willNavigate.subscribe(onNext: { (flow, step) in
             print("will navigate to flow=\(flow) and step=\(step)")
         }).disposed(by: self.disposeBag)
@@ -34,9 +36,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             print("did navigate to flow=\(flow) and step=\(step)")
         }).disposed(by: self.disposeBag)
 
-        let appFlow = AppFlow(services: self.appServices)
+        guard let appServices = self.appServices else { return }
+        
+        let appFlow = AppFlow(services: appServices)
 
-        self.coordinator.coordinate(flow: appFlow, with: AppStepper(withServices: self.appServices))
+        self.coordinator.coordinate(flow: appFlow, with: AppStepper(withServices: appServices))
 
         Flows.use(appFlow, when: .created) { root in
             window.rootViewController = root
