@@ -14,6 +14,8 @@ class DashboardVM : Stepper {
     
     let steps = PublishRelay<Step>()
     
+    let data = Observable<[String]>.just(["first element", "second element", "third element"])
+    
     init() {
         
     }

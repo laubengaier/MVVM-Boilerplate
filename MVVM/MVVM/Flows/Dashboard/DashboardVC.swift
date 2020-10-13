@@ -46,9 +46,11 @@ class DashboardVC : UIViewController {
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         
-        let data = Observable<[String]>.just(["first element", "second element", "third element"])
-
-        data.bind(to: tableView.rx.items(cellIdentifier: "Cell")) { index, model, cell in
+        viewModel
+        .data
+        .bind(
+            to: tableView.rx.items(cellIdentifier: "Cell")
+        ) { index, model, cell in
           cell.textLabel?.text = model
         }
         .disposed(by: disposeBag)
