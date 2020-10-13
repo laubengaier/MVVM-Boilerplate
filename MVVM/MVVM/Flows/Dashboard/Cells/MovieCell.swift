@@ -26,6 +26,8 @@ class MovieCell : UITableViewCell {
     lazy var movieImageView: UIImageView = {
         let view = UIImageView()
         view.backgroundColor = .systemGreen
+        view.contentMode = .scaleAspectFill
+        view.clipsToBounds = true
         return view
     }()
     
