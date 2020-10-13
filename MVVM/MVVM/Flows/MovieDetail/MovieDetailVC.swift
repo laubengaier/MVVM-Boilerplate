@@ -18,7 +18,6 @@ class MovieDetailVC : UIViewController {
     lazy var tableView: UITableView = {
         let view = UITableView()
         view.tableFooterView = UIView()
-        view.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1)
         return view
     }()
     

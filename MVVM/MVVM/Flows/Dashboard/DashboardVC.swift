@@ -40,7 +40,7 @@ class DashboardVC : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
+        setup()        
     }
     
     func setup() {
