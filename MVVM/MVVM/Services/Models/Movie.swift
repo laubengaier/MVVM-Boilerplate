@@ -11,11 +11,11 @@ struct Movie : Codable {
     
     let id: Int
     let title: String
-    let posterPath: String
-    let backdropPath: String
-    let voteAverage: Float
-    let overview: String
-    let releaseDate: String
+    let posterPath: String?
+    let backdropPath: String?
+    let voteAverage: Float?
+    let overview: String?
+    let releaseDate: String?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -25,6 +25,17 @@ struct Movie : Codable {
         case voteAverage = "vote_average"
         case overview
         case releaseDate = "release_date"
+    }
+    
+    init(title: String, overview: String) {
+        self.id = 1
+        self.title = title
+        self.posterPath = nil
+        self.backdropPath = nil
+        self.voteAverage = nil
+        self.overview = overview
+        self.releaseDate = nil
+        
     }
     
 }

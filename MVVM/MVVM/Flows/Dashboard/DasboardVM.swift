@@ -15,8 +15,11 @@ class DashboardVM : Stepper {
     let steps = PublishRelay<Step>()
     let services: AppServices
     
-    let data = Observable<[String]>.just(
-        ["first element", "second element", "third element"]
+    let data = Observable<[Movie]>.just(
+        [
+            Movie(title: "Se7en", overview: "Goiler Film"),
+            Movie(title: "Mulan", overview: "Nice Film")
+        ]
     )
     
     init(services: AppServices) {

@@ -44,14 +44,18 @@ class DashboardVC : UIViewController {
     
     func setup() {
         
-        tableView.register(MovieCell.self, forCellReuseIdentifier: MovieCell.reuseIdentifier)
+        tableView.register(
+            MovieCell.self, forCellReuseIdentifier: MovieCell.reuseIdentifier
+        )
         
         viewModel
         .data
         .bind(
             to: tableView.rx.items(cellIdentifier: MovieCell.reuseIdentifier)
         ) { index, model, cell in
-          cell.textLabel?.text = model
+            guard let cell = cell as? MovieCell else { return }
+            cell.titleLabel.text = model.title
+            cell.descriptionLabel.text = model.overview
         }
         .disposed(by: disposeBag)
         
