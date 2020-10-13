@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B3523F42535AA1B002A87DA /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3523F32535AA1B002A87DA /* APIClient.swift */; };
+		6B3523FB2535AA9A002A87DA /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3523FA2535AA9A002A87DA /* APIProvider.swift */; };
+		6B3524032535AACF002A87DA /* AuthPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3524022535AACF002A87DA /* AuthPlugin.swift */; };
+		6B4275642535B4A900434A5C /* HasProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4275632535B4A900434A5C /* HasProtocols.swift */; };
 		DC4800F62535A3CD00C99264 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4800F52535A3CD00C99264 /* AppDelegate.swift */; };
 		DC4800F82535A3CD00C99264 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4800F72535A3CD00C99264 /* SceneDelegate.swift */; };
 		DC4800FA2535A3CD00C99264 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4800F92535A3CD00C99264 /* ViewController.swift */; };
@@ -51,6 +55,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6B3523F32535AA1B002A87DA /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		6B3523FA2535AA9A002A87DA /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
+		6B3524022535AACF002A87DA /* AuthPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPlugin.swift; sourceTree = "<group>"; };
+		6B4275632535B4A900434A5C /* HasProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasProtocols.swift; sourceTree = "<group>"; };
 		DC4800F22535A3CD00C99264 /* MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC4800F52535A3CD00C99264 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC4800F72535A3CD00C99264 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +116,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B3524082535AE15002A87DA /* API */ = {
+			isa = PBXGroup;
+			children = (
+				6B35240A2535AE23002A87DA /* Plugins */,
+				6B3524092535AE1D002A87DA /* Provider */,
+				6B3523F32535AA1B002A87DA /* APIClient.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		6B3524092535AE1D002A87DA /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				6B3523FA2535AA9A002A87DA /* APIProvider.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		6B35240A2535AE23002A87DA /* Plugins */ = {
+			isa = PBXGroup;
+			children = (
+				6B3524022535AACF002A87DA /* AuthPlugin.swift */,
+			);
+			path = Plugins;
+			sourceTree = "<group>";
+		};
+		6B4275622535B48F00434A5C /* HasProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				6B4275632535B4A900434A5C /* HasProtocols.swift */,
+			);
+			path = HasProtocols;
+			sourceTree = "<group>";
+		};
 		DC4800E92535A3CD00C99264 = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +173,8 @@
 		DC4800F42535A3CD00C99264 /* MVVM */ = {
 			isa = PBXGroup;
 			children = (
+				6B4275622535B48F00434A5C /* HasProtocols */,
+				6B3524082535AE15002A87DA /* API */,
 				DC4800F52535A3CD00C99264 /* AppDelegate.swift */,
 				DC4800F72535A3CD00C99264 /* SceneDelegate.swift */,
 				DC4801522535A7FF00C99264 /* Services */,
@@ -355,6 +399,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B4275642535B4A900434A5C /* HasProtocols.swift in Sources */,
 				DC4800FA2535A3CD00C99264 /* ViewController.swift in Sources */,
 				DC48015C2535A87500C99264 /* AppStep.swift in Sources */,
 				DC4801642535A90D00C99264 /* AppServices.swift in Sources */,
@@ -363,7 +408,10 @@
 				DC48016E2535A93D00C99264 /* DasboardVM.swift in Sources */,
 				DC4801692535A93800C99264 /* DashboardVC.swift in Sources */,
 				DC4800F62535A3CD00C99264 /* AppDelegate.swift in Sources */,
+				6B3524032535AACF002A87DA /* AuthPlugin.swift in Sources */,
+				6B3523FB2535AA9A002A87DA /* APIProvider.swift in Sources */,
 				DC4800F82535A3CD00C99264 /* SceneDelegate.swift in Sources */,
+				6B3523F42535AA1B002A87DA /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
