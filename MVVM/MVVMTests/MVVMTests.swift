@@ -1,14 +1,14 @@
 //
-//  MVVM_BoilerplateTests.swift
-//  MVVM-BoilerplateTests
+//  MVVMTests.swift
+//  MVVMTests
 //
 //  Created by Timotheus Laubengaier on 13.10.20.
 //
 
 import XCTest
-@testable import MVVM_Boilerplate
+@testable import MVVM
 
-class MVVM_BoilerplateTests: XCTestCase {
+class MVVMTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
