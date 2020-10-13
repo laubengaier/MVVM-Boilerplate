@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  MVVM-Boilerplate
+//  MVVM
 //
 //  Created by Timotheus Laubengaier on 13.10.20.
 //
