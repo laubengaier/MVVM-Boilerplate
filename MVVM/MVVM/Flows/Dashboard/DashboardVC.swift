@@ -44,12 +44,12 @@ class DashboardVC : UIViewController {
     
     func setup() {
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.register(MovieCell.self, forCellReuseIdentifier: MovieCell.reuseIdentifier)
         
         viewModel
         .data
         .bind(
-            to: tableView.rx.items(cellIdentifier: "Cell")
+            to: tableView.rx.items(cellIdentifier: MovieCell.reuseIdentifier)
         ) { index, model, cell in
           cell.textLabel?.text = model
         }
