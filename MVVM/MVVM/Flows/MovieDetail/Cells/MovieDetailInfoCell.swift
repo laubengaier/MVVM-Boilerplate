@@ -41,7 +41,7 @@ class MovieDetailInfoCell : UITableViewCell {
         infoLabel.snp.makeConstraints { (make) in
             make.top.trailing.equalTo(contentView).inset(20)
             make.leading.equalTo(titleLabel.snp.trailing)
-            make.width.equalTo(titleLabel.snp.width)
+            make.width.equalTo(titleLabel.snp.width).offset(100)
             make.bottom.equalTo(contentView).inset(20).priority(999)
         }
         

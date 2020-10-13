@@ -13,8 +13,7 @@ class MovieCell : UITableViewCell {
     static let reuseIdentifier = "MovieCell"
     
     lazy var backgroundImageView: UIImageView = {
-        let view = UIImageView()
-        view.backgroundColor = .systemPink
+        let view = UIImageView()        
         return view
     }()
     
@@ -25,7 +24,6 @@ class MovieCell : UITableViewCell {
     
     lazy var movieImageView: UIImageView = {
         let view = UIImageView()
-        view.backgroundColor = .systemGreen
         view.contentMode = .scaleAspectFill
         view.clipsToBounds = true
         return view

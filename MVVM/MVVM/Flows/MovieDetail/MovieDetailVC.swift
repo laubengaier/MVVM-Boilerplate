@@ -79,8 +79,7 @@ extension MovieDetailVC : UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = MovieDetailHeaderView()
-        view.backgroundColor = .systemRed
+        let view = MovieDetailHeaderView()        
         if let imageUrl = viewModel.data.value?.backdropImageUrl {
             view.backgroundImageView.kf.setImage(with: imageUrl)
         }        
