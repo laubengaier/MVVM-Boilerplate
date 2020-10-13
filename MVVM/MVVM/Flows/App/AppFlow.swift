@@ -39,14 +39,12 @@ class AppFlow: Flow {
         case .dashboard:
             return navigateToDashboard()
         case .movieDetail(let id):
-            return navigateToMovieDetail()
-        default:
-            return .none
+            return navigateToMovieDetail(id: id)
         }
     }
 
     private func navigateToDashboard() -> FlowContributors {
-        let vm = DashboardVM()
+        let vm = DashboardVM(services: services)
         let vc = DashboardVC(viewModel: vm)
         
         self.rootViewController.pushViewController(vc, animated: true)
@@ -58,7 +56,7 @@ class AppFlow: Flow {
         )
     }
     
-    private func navigateToMovieDetail() -> FlowContributors {
+    private func navigateToMovieDetail(id: String) -> FlowContributors {
         let vm = MovieDetailVM()
         let vc = MovieDetailVC(viewModel: vm)
         

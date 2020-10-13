@@ -13,11 +13,15 @@ import RxCocoa
 class DashboardVM : Stepper {
     
     let steps = PublishRelay<Step>()
+    let services: AppServices
     
-    let data = Observable<[String]>.just(["first element", "second element", "third element"])
+    let data = Observable<[String]>.just(
+        ["first element", "second element", "third element"]
+    )
     
-    init() {
-        
+    init(services: AppServices) {
+        self.services = services
+        fetchMovies()
     }
     
     func fetchMovies() {
