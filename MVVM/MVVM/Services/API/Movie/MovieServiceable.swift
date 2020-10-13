@@ -11,7 +11,13 @@ import RxSwift
 public protocol MovieServicable {
     /**
      Get a list of movies in theatres.
-    - Returns: Single<[NowPlaying]>
+    - Returns: Single<[Movie]>
      */
     func nowPlaying() -> Single<[Movie]>
+    /**
+     Search for movies.
+     - Returns: Single<[Movie]>
+     */
+    func search(query: String) -> Single<[Movie]>
+    func details(for movieId: String) -> Single<MovieDetail>
 }
