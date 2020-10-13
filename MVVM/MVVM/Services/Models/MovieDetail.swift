@@ -114,3 +114,14 @@ class JSONNull: Codable, Hashable {
         try container.encodeNil()
     }
 }
+
+extension MovieDetail {
+    var backdropImageUrl: URL? {
+        guard
+            let url = URL(string: "https://image.tmdb.org/t/p/w1920_and_h800_multi_faces\(backdropPath)")
+        else {
+            return nil
+        }
+        return url
+    }
+}

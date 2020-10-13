@@ -18,6 +18,8 @@ class DashboardVC : UIViewController {
     
     lazy var tableView: UITableView = {
         let view = UITableView()
+        view.tableFooterView = UIView()
+        view.separatorStyle = .none
         return view
     }()
     
@@ -26,7 +28,7 @@ class DashboardVC : UIViewController {
         super.init(nibName: nil, bundle: nil)
         
         title = "Dashboard"
-        view.backgroundColor = .systemRed
+        view.backgroundColor = .systemBackground
         
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in

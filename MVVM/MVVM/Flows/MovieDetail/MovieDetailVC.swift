@@ -44,7 +44,8 @@ class MovieDetailVC : UIViewController {
     }
     
     func setup() {
-                
+        
+        tableView.delegate = self
         tableView.register(MovieDetailInfoCell.self, forCellReuseIdentifier: MovieDetailInfoCell.reuseIdentifier)
         
         viewModel
@@ -66,6 +67,23 @@ class MovieDetailVC : UIViewController {
             cell.infoLabel.text = model.1
         }
         .disposed(by: disposeBag)
+    }
+    
+}
+
+extension MovieDetailVC : UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 200
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = MovieDetailHeaderView()
+        view.backgroundColor = .systemRed
+        if let imageUrl = viewModel.data.value?.backdropImageUrl {
+            view.backgroundImageView.kf.setImage(with: imageUrl)
+        }        
+        return view
     }
     
 }
