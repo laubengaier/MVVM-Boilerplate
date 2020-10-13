@@ -8,6 +8,10 @@
 import Foundation
 import UIKit
 
+public struct MovieResultWrapper : Codable {
+    let results: [Movie]
+}
+
 public struct Movie : Codable {
     
     let id: Int
@@ -17,18 +21,6 @@ public struct Movie : Codable {
     let voteAverage: Float?
     let overview: String?
     let releaseDate: String?
-    
-    var posterImage: UIImage? {
-        guard
-            let imageName = posterPath,
-            let url = URL(string: "https://image.tmdb.org/t/p/w500\(imageName)"),
-            let data = try? Data(contentsOf: url),
-            let image = UIImage(data: data)
-        else {
-            return nil
-        }
-        return image
-    }
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -51,4 +43,27 @@ public struct Movie : Codable {
         
     }
     
+}
+
+extension Movie {
+    var posterImage: UIImage? {
+        guard
+            let imageName = posterPath,
+            let url = URL(string: "https://image.tmdb.org/t/p/w500\(imageName)"),
+            let data = try? Data(contentsOf: url),
+            let image = UIImage(data: data)
+        else {
+            return nil
+        }
+        return image
+    }
+    var posterImageUrl: URL? {
+        guard
+            let imageName = posterPath,
+            let url = URL(string: "https://image.tmdb.org/t/p/w500\(imageName)")
+        else {
+            return nil
+        }
+        return url
+    }
 }

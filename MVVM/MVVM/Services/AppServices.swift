@@ -21,4 +21,8 @@ class AppServices: HasMovieService {
         self.dependencies = dependencies
         self.movieService = MovieService(dependencies: dependencies)
     }
+    
+    deinit {
+        print("deinit appservices")
+    }
 }
