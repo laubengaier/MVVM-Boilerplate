@@ -38,8 +38,9 @@ class DashboardVM : Stepper {
         .disposed(by: disposeBag)
     }
     
-    func showDetail() {
-        steps.accept(AppStep.movieDetail(id: ""))
+    func showDetail(index: Int) {
+        let movieId = data.value[index].id
+        steps.accept(AppStep.movieDetail(id: movieId))
     }
     
 }

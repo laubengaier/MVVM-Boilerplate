@@ -12,7 +12,7 @@ import RxSwift
 import RxCocoa
 
 typealias Query = String
-typealias MovieId = String
+typealias MovieId = Int
 
 enum MovieProvider {
     case nowPlaying
@@ -122,7 +122,7 @@ public class MovieService: MovieServicable {
         .asSingle()
     }
     
-    public func details(for movieId: String) -> Single<MovieDetail> {
+    public func details(for movieId: Int) -> Single<MovieDetail> {
         let request = self.movieProvider.rx.request(.details(movieId))
         
         return request

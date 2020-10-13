@@ -56,8 +56,8 @@ class AppFlow: Flow {
         )
     }
     
-    private func navigateToMovieDetail(id: String) -> FlowContributors {
-        let vm = MovieDetailVM()
+    private func navigateToMovieDetail(id: Int) -> FlowContributors {
+        let vm = MovieDetailVM(services: services, movieId: id)
         let vc = MovieDetailVC(viewModel: vm)
         
         self.rootViewController.pushViewController(vc, animated: true)

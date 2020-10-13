@@ -19,5 +19,5 @@ public protocol MovieServicable {
      - Returns: Single<[Movie]>
      */
     func search(query: String) -> Single<[Movie]>
-    func details(for movieId: String) -> Single<MovieDetail>
+    func details(for movieId: Int) -> Single<MovieDetail>
 }

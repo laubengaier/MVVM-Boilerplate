@@ -65,9 +65,9 @@ class DashboardVC : UIViewController {
         tableView
         .rx
         .itemSelected
-        .subscribe { [weak self] (index) in
-            self?.viewModel.showDetail()
-        }
+        .subscribe(onNext: { [weak self] (index) in
+            self?.viewModel.showDetail(index: index.row)
+        })
         .disposed(by: disposeBag)
 
     }

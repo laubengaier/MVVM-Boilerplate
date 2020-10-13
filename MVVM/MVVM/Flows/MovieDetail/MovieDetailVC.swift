@@ -17,6 +17,8 @@ class MovieDetailVC : UIViewController {
     
     lazy var tableView: UITableView = {
         let view = UITableView()
+        view.tableFooterView = UIView()
+        view.backgroundColor = .darkGray
         return view
     }()
     
@@ -43,15 +45,26 @@ class MovieDetailVC : UIViewController {
     }
     
     func setup() {
-        
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell1")
+                
+        tableView.register(MovieDetailInfoCell.self, forCellReuseIdentifier: MovieDetailInfoCell.reuseIdentifier)
         
         viewModel
         .data
+        .flatMap({ (movie) -> Observable<[(String, String)]> in
+            guard let movie = movie else { return .just([]) }
+            var details = [(String, String)]()
+            details.append(("Title", movie.title + " | " + movie.originalTitle))
+            details.append(("Overview", movie.overview))
+            details.append(("Tags", movie.tagline))
+            details.append(("Genres", String(movie.genres.map({ $0.name }).joined(separator: ", ")) ))
+            return .just(details)
+        })
         .bind(
-            to: tableView.rx.items(cellIdentifier: "Cell1")
+            to: tableView.rx.items(cellIdentifier: MovieDetailInfoCell.reuseIdentifier)
         ) { index, model, cell in
-          cell.textLabel?.text = model
+            guard let cell = cell as? MovieDetailInfoCell else { return }
+            cell.titleLabel.text = model.0
+            cell.infoLabel.text = model.1
         }
         .disposed(by: disposeBag)
     }

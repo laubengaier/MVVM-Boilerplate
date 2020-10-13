@@ -11,14 +11,13 @@ import Foundation
 public struct MovieDetail: Codable {
     let adult: Bool
     let backdropPath: String
-    let belongsToCollection: JSONNull?
     let budget: Int
     let genres: [Genre]
     let homepage: String
     let id: Int
     let imdbID, originalLanguage, originalTitle, overview: String
     let popularity: Double
-    let posterPath: JSONNull?
+    let posterPath: String?
     let productionCompanies: [ProductionCompany]
     let productionCountries: [ProductionCountry]
     let releaseDate: String
@@ -32,7 +31,6 @@ public struct MovieDetail: Codable {
     enum CodingKeys: String, CodingKey {
         case adult
         case backdropPath = "backdrop_path"
-        case belongsToCollection = "belongs_to_collection"
         case budget, genres, homepage, id
         case imdbID = "imdb_id"
         case originalLanguage = "original_language"

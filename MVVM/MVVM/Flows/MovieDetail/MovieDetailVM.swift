@@ -13,13 +13,31 @@ import RxCocoa
 class MovieDetailVM : Stepper {
     
     let steps = PublishRelay<Step>()
+    let services: AppServices
+    let disposeBag = DisposeBag()
     
-    let data = Observable<[String]>.just(
-        ["Movie Info 1", "Movie Info 2", "Movie Info 3"]
-    )
+    let movieId: Int
     
-    init() {
-        
+    let data = BehaviorRelay<MovieDetail?>(value: nil)
+    
+    init(services: AppServices, movieId: Int) {
+        self.services = services
+        self.movieId = movieId
+        fetchMovie()
+    }
+    
+    func fetchMovie() {
+        services
+        .movieService
+        .details(for: movieId)
+        .debug()
+        .subscribe { [weak self] (movie) in
+            guard let self = self else { return }
+            self.data.accept(movie)
+        } onError: { (error) in
+            print(error)
+        }
+        .disposed(by: disposeBag)
     }
     
 }
