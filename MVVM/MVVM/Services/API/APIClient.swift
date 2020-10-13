@@ -49,6 +49,11 @@ public class APIClient {
     
     private func createRequestClosure<T: APIProvider>(for target: T.Type) -> MoyaProvider<T>.RequestClosure {
         let requestClosure = { [weak self] (endpoint: Endpoint, done: @escaping MoyaProvider.RequestResultClosure) -> Void in
+            guard let request = try? endpoint.urlRequest() else {
+                done(.failure(MoyaError.requestMapping(endpoint.url)))
+                return
+            }
+            done(.success(request))
             // do what ever you want (e.g.: check token)
         }
         return requestClosure

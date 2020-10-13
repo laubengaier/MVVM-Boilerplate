@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 class AppServices: HasMovieService {
     
     typealias Dependencies = HasAPIClient

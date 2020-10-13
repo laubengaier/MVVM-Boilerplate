@@ -17,7 +17,7 @@ enum MovieProvider {
 
 extension MovieProvider: APIProvider {
     
-    var baseURL: URL { return URL(string: "https://api.themoviedb.org/3/")! }
+    var baseURL: URL { return URL(string: "https://api.themoviedb.org/3")! }
     
     var needsAuth: Bool { return false }
     
@@ -35,7 +35,7 @@ extension MovieProvider: APIProvider {
     
     var task: Task {
         switch self {
-        case .nowPlaying: return .requestParameters(parameters: ["language": "de-DE"], encoding: URLEncoding.queryString)
+        case .nowPlaying: return .requestPlain
         }
     }
     
@@ -70,7 +70,7 @@ public class MovieService: MovieServicable {
         
         let handle = request
             .asObservable()
-            .flatMap { (response) -> Observable<Response> in
+            .flatMapLatest { (response) -> Observable<Response> in
                 guard 200...299 ~= response.statusCode else {
                     do {
                         print("Error happened while fetching Now Playing")
