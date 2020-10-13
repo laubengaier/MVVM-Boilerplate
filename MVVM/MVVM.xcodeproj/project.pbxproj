@@ -38,6 +38,7 @@
 		DC48017F2535AC3F00C99264 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DC48017E2535AC3F00C99264 /* SnapKit */; };
 		DC48018B2535B68C00C99264 /* MovieDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC48018A2535B68C00C99264 /* MovieDetailVM.swift */; };
 		DC4801902535B69200C99264 /* MovieDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC48018F2535B69200C99264 /* MovieDetailVC.swift */; };
+		DC4801992535BADE00C99264 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4801982535BADE00C99264 /* Movie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		DC48016D2535A93D00C99264 /* DasboardVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DasboardVM.swift; sourceTree = "<group>"; };
 		DC48018A2535B68C00C99264 /* MovieDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailVM.swift; sourceTree = "<group>"; };
 		DC48018F2535B69200C99264 /* MovieDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailVC.swift; sourceTree = "<group>"; };
+		DC4801982535BADE00C99264 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,6 +281,7 @@
 		DC4801942535BA8F00C99264 /* Movies */ = {
 			isa = PBXGroup;
 			children = (
+				DC4801982535BADE00C99264 /* Movie.swift */,
 			);
 			path = Movies;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				DC4801642535A90D00C99264 /* AppServices.swift in Sources */,
 				DC48014B2535A7D700C99264 /* AppFlow.swift in Sources */,
 				DC48018B2535B68C00C99264 /* MovieDetailVM.swift in Sources */,
+				DC4801992535BADE00C99264 /* Movie.swift in Sources */,
 				DC4801902535B69200C99264 /* MovieDetailVC.swift in Sources */,
 				DC4801572535A81A00C99264 /* AppStepper.swift in Sources */,
 				DC48016E2535A93D00C99264 /* DasboardVM.swift in Sources */,
