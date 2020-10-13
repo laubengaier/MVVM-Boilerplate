@@ -57,8 +57,8 @@ class DashboardVC : UIViewController {
             guard let cell = cell as? MovieCell else { return }
             cell.titleLabel.text = model.title
             cell.descriptionLabel.text = model.overview
-            cell.movieImageView.kf.setImage(with: model.posterImageUrl)
-            cell.backgroundImageView.kf.setImage(with: model.backdropImageUrl)
+            cell.movieImageView.kf.setImage(with: model.posterImageUrl, options: [.transition(.fade(0.4)), .forceTransition])
+            cell.backgroundImageView.kf.setImage(with: model.backdropImageUrl, options: [.transition(.fade(0.4)), .forceTransition])
         }
         .disposed(by: disposeBag)
         
