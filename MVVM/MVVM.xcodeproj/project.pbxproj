@@ -44,6 +44,7 @@
 		DC4801902535B69200C99264 /* MovieDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC48018F2535B69200C99264 /* MovieDetailVC.swift */; };
 		DC4801992535BADE00C99264 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4801982535BADE00C99264 /* Movie.swift */; };
 		DC4801AC2535C22D00C99264 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4801AB2535C22D00C99264 /* MovieCell.swift */; };
+		DC4801C92535CBD000C99264 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DC4801C82535CBD000C99264 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,7 @@
 				DC4801382535A57C00C99264 /* Moya in Frameworks */,
 				DC4801792535ABF000C99264 /* RxDataSources in Frameworks */,
 				DC48013A2535A57C00C99264 /* ReactiveMoya in Frameworks */,
+				DC4801C92535CBD000C99264 /* Kingfisher in Frameworks */,
 				DC48012E2535A53300C99264 /* RxSwift in Frameworks */,
 				DC48017F2535AC3F00C99264 /* SnapKit in Frameworks */,
 			);
@@ -344,6 +346,7 @@
 				DC4801762535ABF000C99264 /* Differentiator */,
 				DC4801782535ABF000C99264 /* RxDataSources */,
 				DC48017E2535AC3F00C99264 /* SnapKit */,
+				DC4801C82535CBD000C99264 /* Kingfisher */,
 			);
 			productName = MVVM;
 			productReference = DC4800F22535A3CD00C99264 /* MVVM.app */;
@@ -422,6 +425,7 @@
 				DC4801402535A59300C99264 /* XCRemoteSwiftPackageReference "RxFlow" */,
 				DC4801752535ABF000C99264 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 				DC48017D2535AC3F00C99264 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				DC4801C72535CBCF00C99264 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = DC4800F32535A3CD00C99264 /* Products */;
 			projectDirPath = "";
@@ -858,6 +862,14 @@
 				minimumVersion = 5.0.1;
 			};
 		};
+		DC4801C72535CBCF00C99264 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.15.6;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -910,6 +922,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DC48017D2535AC3F00C99264 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		DC4801C82535CBD000C99264 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC4801C72535CBCF00C99264 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
