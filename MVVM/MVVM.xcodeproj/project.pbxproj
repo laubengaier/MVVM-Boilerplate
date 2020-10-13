@@ -26,6 +26,15 @@
 		DC48013A2535A57C00C99264 /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = DC4801392535A57C00C99264 /* ReactiveMoya */; };
 		DC48013C2535A57C00C99264 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = DC48013B2535A57C00C99264 /* RxMoya */; };
 		DC4801422535A59300C99264 /* RxFlow in Frameworks */ = {isa = PBXBuildFile; productRef = DC4801412535A59300C99264 /* RxFlow */; };
+		DC48014B2535A7D700C99264 /* AppFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC48014A2535A7D700C99264 /* AppFlow.swift */; };
+		DC4801572535A81A00C99264 /* AppStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4801562535A81A00C99264 /* AppStepper.swift */; };
+		DC48015C2535A87500C99264 /* AppStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC48015B2535A87500C99264 /* AppStep.swift */; };
+		DC4801642535A90D00C99264 /* AppServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4801632535A90D00C99264 /* AppServices.swift */; };
+		DC4801692535A93800C99264 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4801682535A93700C99264 /* DashboardVC.swift */; };
+		DC48016E2535A93D00C99264 /* DasboardVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC48016D2535A93D00C99264 /* DasboardVM.swift */; };
+		DC4801772535ABF000C99264 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = DC4801762535ABF000C99264 /* Differentiator */; };
+		DC4801792535ABF000C99264 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = DC4801782535ABF000C99264 /* RxDataSources */; };
+		DC48017F2535AC3F00C99264 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DC48017E2535AC3F00C99264 /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +73,12 @@
 		DC4801132535A3CF00C99264 /* MVVMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MVVMUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC4801172535A3CF00C99264 /* MVVMUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMUITests.swift; sourceTree = "<group>"; };
 		DC4801192535A3CF00C99264 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC48014A2535A7D700C99264 /* AppFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlow.swift; sourceTree = "<group>"; };
+		DC4801562535A81A00C99264 /* AppStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStepper.swift; sourceTree = "<group>"; };
+		DC48015B2535A87500C99264 /* AppStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStep.swift; sourceTree = "<group>"; };
+		DC4801632535A90D00C99264 /* AppServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppServices.swift; sourceTree = "<group>"; };
+		DC4801682535A93700C99264 /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
+		DC48016D2535A93D00C99264 /* DasboardVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DasboardVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,9 +90,12 @@
 				DC4801422535A59300C99264 /* RxFlow in Frameworks */,
 				DC4801322535A53400C99264 /* RxRelay in Frameworks */,
 				DC4801302535A53400C99264 /* RxCocoa in Frameworks */,
+				DC4801772535ABF000C99264 /* Differentiator in Frameworks */,
 				DC4801382535A57C00C99264 /* Moya in Frameworks */,
+				DC4801792535ABF000C99264 /* RxDataSources in Frameworks */,
 				DC48013A2535A57C00C99264 /* ReactiveMoya in Frameworks */,
 				DC48012E2535A53300C99264 /* RxSwift in Frameworks */,
+				DC48017F2535AC3F00C99264 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +177,8 @@
 				6B3524082535AE15002A87DA /* API */,
 				DC4800F52535A3CD00C99264 /* AppDelegate.swift */,
 				DC4800F72535A3CD00C99264 /* SceneDelegate.swift */,
+				DC4801522535A7FF00C99264 /* Services */,
+				DC4801472535A7BF00C99264 /* Flows */,
 				DC4800F92535A3CD00C99264 /* ViewController.swift */,
 				DC48012B2535A4CB00C99264 /* Resources */,
 			);
@@ -194,6 +214,42 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		DC4801472535A7BF00C99264 /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				DC4801492535A7CF00C99264 /* App */,
+				DC4801482535A7C500C99264 /* Dashboard */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		DC4801482535A7C500C99264 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				DC48016D2535A93D00C99264 /* DasboardVM.swift */,
+				DC4801682535A93700C99264 /* DashboardVC.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		DC4801492535A7CF00C99264 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				DC48015B2535A87500C99264 /* AppStep.swift */,
+				DC48014A2535A7D700C99264 /* AppFlow.swift */,
+				DC4801562535A81A00C99264 /* AppStepper.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		DC4801522535A7FF00C99264 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DC4801632535A90D00C99264 /* AppServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -218,6 +274,9 @@
 				DC4801392535A57C00C99264 /* ReactiveMoya */,
 				DC48013B2535A57C00C99264 /* RxMoya */,
 				DC4801412535A59300C99264 /* RxFlow */,
+				DC4801762535ABF000C99264 /* Differentiator */,
+				DC4801782535ABF000C99264 /* RxDataSources */,
+				DC48017E2535AC3F00C99264 /* SnapKit */,
 			);
 			productName = MVVM;
 			productReference = DC4800F22535A3CD00C99264 /* MVVM.app */;
@@ -294,6 +353,8 @@
 				DC48012C2535A53300C99264 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				DC4801362535A57C00C99264 /* XCRemoteSwiftPackageReference "Moya" */,
 				DC4801402535A59300C99264 /* XCRemoteSwiftPackageReference "RxFlow" */,
+				DC4801752535ABF000C99264 /* XCRemoteSwiftPackageReference "RxDataSources" */,
+				DC48017D2535AC3F00C99264 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = DC4800F32535A3CD00C99264 /* Products */;
 			projectDirPath = "";
@@ -340,6 +401,12 @@
 			files = (
 				6B4275642535B4A900434A5C /* HasProtocols.swift in Sources */,
 				DC4800FA2535A3CD00C99264 /* ViewController.swift in Sources */,
+				DC48015C2535A87500C99264 /* AppStep.swift in Sources */,
+				DC4801642535A90D00C99264 /* AppServices.swift in Sources */,
+				DC48014B2535A7D700C99264 /* AppFlow.swift in Sources */,
+				DC4801572535A81A00C99264 /* AppStepper.swift in Sources */,
+				DC48016E2535A93D00C99264 /* DasboardVM.swift in Sources */,
+				DC4801692535A93800C99264 /* DashboardVC.swift in Sources */,
 				DC4800F62535A3CD00C99264 /* AppDelegate.swift in Sources */,
 				6B3524032535AACF002A87DA /* AuthPlugin.swift in Sources */,
 				6B3523FB2535AA9A002A87DA /* APIProvider.swift in Sources */,
@@ -697,6 +764,22 @@
 				minimumVersion = 2.11.0;
 			};
 		};
+		DC4801752535ABF000C99264 /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.1;
+			};
+		};
+		DC48017D2535AC3F00C99264 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -734,6 +817,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DC4801402535A59300C99264 /* XCRemoteSwiftPackageReference "RxFlow" */;
 			productName = RxFlow;
+		};
+		DC4801762535ABF000C99264 /* Differentiator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC4801752535ABF000C99264 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = Differentiator;
+		};
+		DC4801782535ABF000C99264 /* RxDataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC4801752535ABF000C99264 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = RxDataSources;
+		};
+		DC48017E2535AC3F00C99264 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC48017D2535AC3F00C99264 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
