@@ -11,6 +11,7 @@
 		6B3523FB2535AA9A002A87DA /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3523FA2535AA9A002A87DA /* APIProvider.swift */; };
 		6B3524032535AACF002A87DA /* AuthPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3524022535AACF002A87DA /* AuthPlugin.swift */; };
 		6B4275642535B4A900434A5C /* HasProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4275632535B4A900434A5C /* HasProtocols.swift */; };
+		6B42757F2535BD1C00434A5C /* NowPlayingServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B42757E2535BD1C00434A5C /* NowPlayingServiceable.swift */; };
 		DC4800F62535A3CD00C99264 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4800F52535A3CD00C99264 /* AppDelegate.swift */; };
 		DC4800F82535A3CD00C99264 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4800F72535A3CD00C99264 /* SceneDelegate.swift */; };
 		DC4800FA2535A3CD00C99264 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4800F92535A3CD00C99264 /* ViewController.swift */; };
@@ -38,6 +39,7 @@
 		DC48018B2535B68C00C99264 /* MovieDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC48018A2535B68C00C99264 /* MovieDetailVM.swift */; };
 		DC4801902535B69200C99264 /* MovieDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC48018F2535B69200C99264 /* MovieDetailVC.swift */; };
 		DC4801992535BADE00C99264 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4801982535BADE00C99264 /* Movie.swift */; };
+		DC4801A62535BF5100C99264 /* NowPlayingServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4801A52535BF5100C99264 /* NowPlayingServiceable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,7 @@
 		6B3523FA2535AA9A002A87DA /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
 		6B3524022535AACF002A87DA /* AuthPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPlugin.swift; sourceTree = "<group>"; };
 		6B4275632535B4A900434A5C /* HasProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasProtocols.swift; sourceTree = "<group>"; };
+		6B42757E2535BD1C00434A5C /* NowPlayingServiceable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingServiceable.swift; sourceTree = "<group>"; };
 		DC4800F22535A3CD00C99264 /* MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC4800F52535A3CD00C99264 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC4800F72535A3CD00C99264 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +88,7 @@
 		DC48018A2535B68C00C99264 /* MovieDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailVM.swift; sourceTree = "<group>"; };
 		DC48018F2535B69200C99264 /* MovieDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailVC.swift; sourceTree = "<group>"; };
 		DC4801982535BADE00C99264 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		DC4801A52535BF5100C99264 /* NowPlayingServiceable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingServiceable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +131,7 @@
 			children = (
 				6B35240A2535AE23002A87DA /* Plugins */,
 				6B3524092535AE1D002A87DA /* Provider */,
+				DC4801A42535BF5100C99264 /* NowPlaying */,
 				6B3523F32535AA1B002A87DA /* APIClient.swift */,
 			);
 			path = API;
@@ -163,6 +168,7 @@
 				DC48010B2535A3CF00C99264 /* MVVMTests */,
 				DC4801162535A3CF00C99264 /* MVVMUITests */,
 				DC4800F32535A3CD00C99264 /* Products */,
+				DC4801A02535BF1000C99264 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -274,6 +280,23 @@
 			);
 			path = Models;
 			sourceTree = "<group>";
+		};
+		DC4801A02535BF1000C99264 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				6B42757E2535BD1C00434A5C /* NowPlayingServiceable.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		DC4801A42535BF5100C99264 /* NowPlaying */ = {
+			isa = PBXGroup;
+			children = (
+				DC4801A52535BF5100C99264 /* NowPlayingServiceable.swift */,
+			);
+			name = NowPlaying;
+			path = MVVM/Services/NowPlaying;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -427,6 +450,7 @@
 				6B4275642535B4A900434A5C /* HasProtocols.swift in Sources */,
 				DC4800FA2535A3CD00C99264 /* ViewController.swift in Sources */,
 				DC48015C2535A87500C99264 /* AppStep.swift in Sources */,
+				6B42757F2535BD1C00434A5C /* NowPlayingServiceable.swift in Sources */,
 				DC4801642535A90D00C99264 /* AppServices.swift in Sources */,
 				DC48014B2535A7D700C99264 /* AppFlow.swift in Sources */,
 				DC48018B2535B68C00C99264 /* MovieDetailVM.swift in Sources */,
@@ -436,6 +460,7 @@
 				DC48016E2535A93D00C99264 /* DasboardVM.swift in Sources */,
 				DC4801692535A93800C99264 /* DashboardVC.swift in Sources */,
 				DC4800F62535A3CD00C99264 /* AppDelegate.swift in Sources */,
+				DC4801A62535BF5100C99264 /* NowPlayingServiceable.swift in Sources */,
 				6B3524032535AACF002A87DA /* AuthPlugin.swift in Sources */,
 				6B3523FB2535AA9A002A87DA /* APIProvider.swift in Sources */,
 				DC4800F82535A3CD00C99264 /* SceneDelegate.swift in Sources */,
