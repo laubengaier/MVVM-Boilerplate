@@ -15,11 +15,9 @@ class DashboardVM : Stepper {
     
     let steps = PublishRelay<Step>()
     let services: AppServices
+    let disposeBag = DisposeBag()
     
-    let data = BehaviorRelay<[Movie]>(value: [
-        Movie(title: "Se7en", overview: "Goiler Film"),
-        Movie(title: "Mulan", overview: "Nice Film")
-    ])
+    let data = BehaviorRelay<[Movie]>(value: [])
     
     init(services: AppServices) {
         self.services = services
@@ -27,10 +25,16 @@ class DashboardVM : Stepper {
     }
     
     func fetchMovies() {
-//        services
-//        .movieService
-//        .nowPlaying()
-//        .bind(to: data)
+        services
+        .movieService
+        .nowPlaying()
+        .subscribe { [weak self] (movies) in
+            guard let self = self else { return }
+            self.data.accept(movies)
+        } onError: { (error) in
+            print(error)
+        }
+        .disposed(by: disposeBag)
     }
     
     func showDetail() {
