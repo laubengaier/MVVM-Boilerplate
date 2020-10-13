@@ -68,24 +68,23 @@ public class MovieService: MovieServicable {
     public func nowPlaying() -> Single<[Movie]> {
         let request = self.movieProvider.rx.request(.nowPlaying)
         
-        let handle = request
-            .asObservable()
-            .flatMapLatest { (response) -> Observable<Response> in
-                guard 200...299 ~= response.statusCode else {
-                    do {
-                        print("Error happened while fetching Now Playing")
-                        let errorResponse = try response.map(MovieError.self)
-                        throw errorResponse
-                    } catch {
-                        throw error
-                    }
+        return request
+        .asObservable()
+        .flatMap { (response) -> Observable<Response> in
+            guard 200...299 ~= response.statusCode else {
+                do {
+                    print("Error happened while fetching Now Playing")
+                    let errorResponse = try response.map(MovieError.self)
+                    throw errorResponse
+                } catch {
+                    throw error
                 }
-                return .just(response)
             }
-            .map([Movie].self)
-            .asSingle()
-            
-        return handle
+            return .just(response)
+        }
+        .map(MovieResultWrapper.self)
+        .map({ $0.results })
+        .asSingle()
     }
     
 }
