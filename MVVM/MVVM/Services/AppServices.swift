@@ -11,7 +11,7 @@ class AppServices: HasMovieService {
     
     typealias Dependencies = HasAPIClient
 
-    let dependencies: Dependencies
+    private let dependencies: Dependencies
     
     let movieService: MovieServicable
     
