@@ -1,8 +1,8 @@
 //
-//  DasboardVM.swift
+//  ActorListVM.swift
 //  MVVM
 //
-//  Created by Timotheus Laubengaier on 13.10.20.
+//  Created by Timotheus Laubengaier on 14.10.20.
 //
 
 import Foundation
@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import RxRelay
 
-class DashboardVM : Stepper {
+class ActorListVM : Stepper {
     
     let steps = PublishRelay<Step>()
     let services: AppServices
@@ -21,10 +21,10 @@ class DashboardVM : Stepper {
     
     init(services: AppServices) {
         self.services = services
-        fetchMovies()
+        fetchActors()
     }
     
-    func fetchMovies() {
+    func fetchActors() {
         services
         .movieService
         .nowPlaying()
@@ -36,11 +36,6 @@ class DashboardVM : Stepper {
             print(error)
         }
         .disposed(by: disposeBag)
-    }
-    
-    func showDetail(index: Int) {
-        let movieId = data.value[index].id
-        steps.accept(AppStep.movieDetail(id: movieId))
     }
     
 }

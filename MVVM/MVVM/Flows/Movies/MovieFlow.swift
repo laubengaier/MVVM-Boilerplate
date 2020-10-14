@@ -6,13 +6,12 @@
 //
 
 import Foundation
-
 import RxFlow
 import RxSwift
 import RxCocoa
 import UIKit
 
-class MovieListFlow: Flow {
+class MovieFlow: Flow {
 
     var root: Presentable {
         return self.rootViewController
@@ -23,12 +22,12 @@ class MovieListFlow: Flow {
         nvc.navigationBar.prefersLargeTitles = true
         return nvc
     }()
-    private let movieListStepper: MovieListStepper
+    private let movieStepper: MovieStepper
     private let services: AppServices
 
-    init(withServices services: AppServices, andStepper stepper: MovieListStepper) {
+    init(withServices services: AppServices, andStepper stepper: MovieStepper) {
         self.services = services
-        self.movieListStepper = stepper
+        self.movieStepper = stepper
     }
 
     deinit {
@@ -76,7 +75,7 @@ class MovieListFlow: Flow {
 
 }
 
-class MovieListStepper: Stepper {
+class MovieStepper: Stepper {
 
     let steps = PublishRelay<Step>()
 

@@ -10,7 +10,12 @@ import RxFlow
 enum AppStep: Step {
     
     case dashboard
+    
+    // MARK: Movies
     case movieList
     case movieDetail(id: Int)
+    
+    // MARK: Actors
+    case actorList
 
 }

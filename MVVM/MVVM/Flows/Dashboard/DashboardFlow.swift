@@ -39,23 +39,34 @@ class DashboardFlow: Flow {
 
     private func navigateToDashboard() -> FlowContributors {
         
-        let movieListStepper = MovieListStepper()
+        let movieStepper = MovieStepper()
+        let movieFlow = MovieFlow(withServices: self.services, andStepper: movieStepper)
+        
+        let actorsStepper = ActorFlowStepper()
+        let actorFlow = ActorFlow(withServices: self.services)
 
-        let movieListFlow = MovieListFlow(withServices: self.services, andStepper: movieListStepper)
-
-        Flows.use(movieListFlow, when: .created) { [unowned self] (root1: UINavigationController) in
+        Flows.use(movieFlow, actorFlow, when: .created) { [unowned self] (root1: UINavigationController, root2: UINavigationController) in
             let tabBarItem1 = UITabBarItem(title: "MovieList", image: UIImage(systemName: "house"), selectedImage: nil)
             root1.tabBarItem = tabBarItem1
             root1.title = "Movie List"
+            
+            let tabBarItem2 = UITabBarItem(title: "Actors", image: UIImage(systemName: "flame.fill"), selectedImage: nil)
+            root2.tabBarItem = tabBarItem2
+            root2.title = "Actors"
 
-            self.rootViewController.setViewControllers([root1], animated: false)
+            self.rootViewController.setViewControllers([root1, root2], animated: false)
         }
 
         return .multiple(
             flowContributors: [
                 .contribute(
-                    withNextPresentable: movieListFlow,
-                    withNextStepper: CompositeStepper(steppers: [OneStepper(withSingleStep: AppStep.movieList), movieListStepper]))
+                    withNextPresentable: movieFlow,
+                    withNextStepper: CompositeStepper(steppers: [OneStepper(withSingleStep: AppStep.movieList), movieStepper])
+                ),
+                .contribute(
+                    withNextPresentable: actorFlow,
+                    withNextStepper: CompositeStepper(steppers: [OneStepper(withSingleStep: AppStep.actorList), actorsStepper])
+                )
             ]
         )
     }
