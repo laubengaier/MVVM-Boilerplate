@@ -275,7 +275,7 @@
 				DC4800F52535A3CD00C99264 /* AppDelegate.swift */,
 				DC4800F72535A3CD00C99264 /* SceneDelegate.swift */,
 				DC4801522535A7FF00C99264 /* Services */,
-				DC4801472535A7BF00C99264 /* Flows */,
+				DC4801472535A7BF00C99264 /* Features */,
 				DC4800F92535A3CD00C99264 /* ViewController.swift */,
 				6B4275622535B48F00434A5C /* HasProtocols */,
 				DC48012B2535A4CB00C99264 /* Resources */,
@@ -312,7 +312,7 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		DC4801472535A7BF00C99264 /* Flows */ = {
+		DC4801472535A7BF00C99264 /* Features */ = {
 			isa = PBXGroup;
 			children = (
 				DC4801492535A7CF00C99264 /* App */,
@@ -321,7 +321,7 @@
 				DC2F5B722536DC4D004B8EE9 /* Actors */,
 				6B997A462536ED4E008AA4B3 /* Search */,
 			);
-			path = Flows;
+			path = Features;
 			sourceTree = "<group>";
 		};
 		DC4801482535A7C500C99264 /* Dashboard */ = {
