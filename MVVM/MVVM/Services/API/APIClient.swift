@@ -7,8 +7,7 @@
 
 import Foundation
 import Moya
-
-
+import RxSwift
 
 public class APIClient {
     
@@ -32,6 +31,18 @@ public class APIClient {
         return MoyaProvider<T>(endpointClosure: endpointClosure,
                                requestClosure: requestClosure,
                                plugins: plugins)
+    }
+    
+    func handlePossibleErrors<T>(response: Response, errorType: T.Type) -> Observable<Response> where T: Error, T: Codable {
+        guard 200...299 ~= response.statusCode else {
+            do {
+                let errorResponse = try response.map(errorType)
+                return .error(errorResponse)
+            } catch {
+                return .error(error)
+            }
+        }
+        return .just(response)
     }
     
     private func createEndpointClosure<T: APIProvider>(for target: T.Type) -> MoyaProvider<T>.EndpointClosure {
@@ -58,5 +69,4 @@ public class APIClient {
         }
         return requestClosure
     }
-    
 }
