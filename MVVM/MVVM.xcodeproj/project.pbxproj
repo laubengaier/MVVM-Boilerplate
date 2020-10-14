@@ -17,6 +17,9 @@
 		6B3523FB2535AA9A002A87DA /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3523FA2535AA9A002A87DA /* APIProvider.swift */; };
 		6B3524032535AACF002A87DA /* AuthPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3524022535AACF002A87DA /* AuthPlugin.swift */; };
 		6B4275642535B4A900434A5C /* HasProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4275632535B4A900434A5C /* HasProtocols.swift */; };
+		6B997A482536ED5B008AA4B3 /* SearchFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B997A472536ED5B008AA4B3 /* SearchFlow.swift */; };
+		6B997A512536ED75008AA4B3 /* SearchListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B997A502536ED75008AA4B3 /* SearchListVM.swift */; };
+		6B997A562536ED7C008AA4B3 /* SearchListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B997A552536ED7C008AA4B3 /* SearchListVC.swift */; };
 		DC2F5B752536DC65004B8EE9 /* ActorListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2F5B742536DC65004B8EE9 /* ActorListVM.swift */; };
 		DC2F5B7A2536DC6D004B8EE9 /* ActorListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2F5B792536DC6D004B8EE9 /* ActorListVC.swift */; };
 		DC2F5B7F2536DCC6004B8EE9 /* ActorFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2F5B7E2536DCC6004B8EE9 /* ActorFlow.swift */; };
@@ -83,6 +86,9 @@
 		6B3523FA2535AA9A002A87DA /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
 		6B3524022535AACF002A87DA /* AuthPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPlugin.swift; sourceTree = "<group>"; };
 		6B4275632535B4A900434A5C /* HasProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasProtocols.swift; sourceTree = "<group>"; };
+		6B997A472536ED5B008AA4B3 /* SearchFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFlow.swift; sourceTree = "<group>"; };
+		6B997A502536ED75008AA4B3 /* SearchListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListVM.swift; sourceTree = "<group>"; };
+		6B997A552536ED7C008AA4B3 /* SearchListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListVC.swift; sourceTree = "<group>"; };
 		DC2F5B742536DC65004B8EE9 /* ActorListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorListVM.swift; sourceTree = "<group>"; };
 		DC2F5B792536DC6D004B8EE9 /* ActorListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorListVC.swift; sourceTree = "<group>"; };
 		DC2F5B7E2536DCC6004B8EE9 /* ActorFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorFlow.swift; sourceTree = "<group>"; };
@@ -206,6 +212,24 @@
 			path = HasProtocols;
 			sourceTree = "<group>";
 		};
+		6B997A462536ED4E008AA4B3 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				6B997A4F2536ED6C008AA4B3 /* SearchList */,
+				6B997A472536ED5B008AA4B3 /* SearchFlow.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		6B997A4F2536ED6C008AA4B3 /* SearchList */ = {
+			isa = PBXGroup;
+			children = (
+				6B997A502536ED75008AA4B3 /* SearchListVM.swift */,
+				6B997A552536ED7C008AA4B3 /* SearchListVC.swift */,
+			);
+			path = SearchList;
+			sourceTree = "<group>";
+		};
 		DC2F5B722536DC4D004B8EE9 /* Actors */ = {
 			isa = PBXGroup;
 			children = (
@@ -295,6 +319,7 @@
 				DC4801482535A7C500C99264 /* Dashboard */,
 				DC4802182535F01F00C99264 /* Movies */,
 				DC2F5B722536DC4D004B8EE9 /* Actors */,
+				6B997A462536ED4E008AA4B3 /* Search */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -544,6 +569,7 @@
 			files = (
 				6B4275642535B4A900434A5C /* HasProtocols.swift in Sources */,
 				DC4800FA2535A3CD00C99264 /* ViewController.swift in Sources */,
+				6B997A512536ED75008AA4B3 /* SearchListVM.swift in Sources */,
 				DC48015C2535A87500C99264 /* AppStep.swift in Sources */,
 				DC4801642535A90D00C99264 /* AppServices.swift in Sources */,
 				DC2F5B752536DC65004B8EE9 /* ActorListVM.swift in Sources */,
@@ -559,6 +585,7 @@
 				6B29CA9E2535C62900C1FCEA /* MovieError.swift in Sources */,
 				DC4801DE2535DDC400C99264 /* MovieDetailInfoCell.swift in Sources */,
 				DC4801572535A81A00C99264 /* AppStepper.swift in Sources */,
+				6B997A562536ED7C008AA4B3 /* SearchListVC.swift in Sources */,
 				DC4800F62535A3CD00C99264 /* AppDelegate.swift in Sources */,
 				DC4801AC2535C22D00C99264 /* MovieCell.swift in Sources */,
 				6B29CAC12535D73700C1FCEA /* MovieDetail.swift in Sources */,
@@ -567,6 +594,7 @@
 				6B3523FB2535AA9A002A87DA /* APIProvider.swift in Sources */,
 				DC4800F82535A3CD00C99264 /* SceneDelegate.swift in Sources */,
 				6B3523F42535AA1B002A87DA /* APIClient.swift in Sources */,
+				6B997A482536ED5B008AA4B3 /* SearchFlow.swift in Sources */,
 				6B29CAAB2535C82400C1FCEA /* DependencyFactory.swift in Sources */,
 				DC4801F82535E8AB00C99264 /* DashboardFlow.swift in Sources */,
 				DC2F5B7A2536DC6D004B8EE9 /* ActorListVC.swift in Sources */,

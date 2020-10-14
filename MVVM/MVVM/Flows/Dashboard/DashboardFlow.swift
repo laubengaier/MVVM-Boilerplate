@@ -44,8 +44,11 @@ class DashboardFlow: Flow {
         
         let actorsStepper = ActorFlowStepper()
         let actorFlow = ActorFlow(withServices: self.services)
+        
+        let searchStepper = SearchFlowStepper()
+        let searchFlow = SearchFlow(withServices: self.services)
 
-        Flows.use(movieFlow, actorFlow, when: .created) { [unowned self] (root1: UINavigationController, root2: UINavigationController) in
+        Flows.use(movieFlow, actorFlow, searchFlow, when: .created) { [unowned self] (root1: UINavigationController, root2: UINavigationController, root3: UINavigationController) in
             let tabBarItem1 = UITabBarItem(title: "MovieList", image: UIImage(systemName: "house"), selectedImage: nil)
             root1.tabBarItem = tabBarItem1
             root1.title = "Movie List"
@@ -53,8 +56,12 @@ class DashboardFlow: Flow {
             let tabBarItem2 = UITabBarItem(title: "Actors", image: UIImage(systemName: "flame.fill"), selectedImage: nil)
             root2.tabBarItem = tabBarItem2
             root2.title = "Actors"
+            
+            let tabBarItem3 = UITabBarItem(title: "Suche", image: UIImage(systemName: "magnifyingglass"), selectedImage: nil)
+            root3.tabBarItem = tabBarItem3
+            root3.title = "Suche"
 
-            self.rootViewController.setViewControllers([root1, root2], animated: false)
+            self.rootViewController.setViewControllers([root1, root2, root3], animated: false)
         }
 
         return .multiple(
@@ -66,7 +73,10 @@ class DashboardFlow: Flow {
                 .contribute(
                     withNextPresentable: actorFlow,
                     withNextStepper: CompositeStepper(steppers: [OneStepper(withSingleStep: AppStep.actorList), actorsStepper])
-                )
+                ),
+                .contribute(withNextPresentable: searchFlow,
+                            withNextStepper: CompositeStepper(steppers: [OneStepper(withSingleStep: AppStep.search), searchStepper])
+                ),
             ]
         )
     }

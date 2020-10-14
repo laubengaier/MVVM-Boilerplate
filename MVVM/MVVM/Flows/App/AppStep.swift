@@ -17,5 +17,8 @@ enum AppStep: Step {
     
     // MARK: Actors
     case actorList
+    
+    // MARK: Search
+    case search
 
 }
