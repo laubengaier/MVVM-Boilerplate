@@ -28,7 +28,6 @@ class ActorListVM : Stepper {
         services
         .movieService
         .nowPlaying()
-        .debug()
         .subscribe { [weak self] (movies) in
             guard let self = self else { return }
             self.data.accept(movies)

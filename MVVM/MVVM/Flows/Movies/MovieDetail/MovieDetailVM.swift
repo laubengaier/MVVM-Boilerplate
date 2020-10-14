@@ -30,7 +30,6 @@ class MovieDetailVM : Stepper {
         services
         .movieService
         .details(for: movieId)
-        .debug()
         .subscribe { [weak self] (movie) in
             guard let self = self else { return }
             self.data.accept(movie)

@@ -9,7 +9,7 @@ import Foundation
 
 public struct MovieError: Error, Codable {
     let message: String
-    let success: Bool
+    let success: Bool?
     let statusCode: Int
     
     enum CodingKeys: String, CodingKey {

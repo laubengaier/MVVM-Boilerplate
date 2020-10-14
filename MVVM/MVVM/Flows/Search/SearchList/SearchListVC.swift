@@ -61,6 +61,7 @@ class SearchListVC : UIViewController {
             .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
             .distinctUntilChanged()
             .subscribe { [weak self] (query) in
+                guard query.element?.count ?? 0 > 3 else { return }
                 self?.viewModel.search(query: query.element ?? "")
             }
             .disposed(by: self.disposeBag)        
