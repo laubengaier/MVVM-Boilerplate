@@ -28,7 +28,6 @@ class SearchListVM : Stepper {
             .movieService
             .search(query: query)
             .subscribe { (result) in
-                print(result)
                 self.data.accept(result)
             } onError: { (error) in
                 print(error)
