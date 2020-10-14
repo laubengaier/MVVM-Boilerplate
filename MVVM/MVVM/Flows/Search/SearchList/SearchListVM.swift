@@ -21,21 +21,24 @@ class SearchListVM : Stepper {
     
     init(services: AppServices) {
         self.services = services
-        fetchActors()
     }
     
-    func fetchActors() {
-        services
-        .movieService
-        .nowPlaying()
-        .debug()
-        .subscribe { [weak self] (movies) in
-            guard let self = self else { return }
-            self.data.accept(movies)
-        } onError: { (error) in
-            print(error)
-        }
-        .disposed(by: disposeBag)
+    func search(query: String) {
+        self.services
+            .movieService
+            .search(query: query)
+            .subscribe { (result) in
+                print(result)
+                self.data.accept(result)
+            } onError: { (error) in
+                print(error)
+            }
+            .disposed(by: self.disposeBag)
+    }
+    
+    func showDetail(index: Int) {
+        let movieId = data.value[index].id
+        steps.accept(AppStep.movieDetail(id: movieId))
     }
     
 }

@@ -39,6 +39,8 @@ class SearchFlow: Flow {
         switch step {
         case .search:
             return navigateToSearch()
+        case .movieDetail(let id):
+            return self.navigateToMovieDetail(id: id)
         default:
             return .none
         }
@@ -47,6 +49,19 @@ class SearchFlow: Flow {
     private func navigateToSearch() -> FlowContributors {
         let vm = SearchListVM(services: services)
         let vc = SearchListVC(viewModel: vm)
+        
+        self.rootViewController.pushViewController(vc, animated: true)
+        return .one(
+            flowContributor: .contribute(
+                withNextPresentable: vc,
+                withNextStepper: vm
+            )
+        )
+    }
+    
+    private func navigateToMovieDetail(id: Int) -> FlowContributors {
+        let vm = MovieDetailVM(services: services, movieId: id)
+        let vc = MovieDetailVC(viewModel: vm)
         
         self.rootViewController.pushViewController(vc, animated: true)
         return .one(
