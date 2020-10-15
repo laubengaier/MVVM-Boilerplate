@@ -15,7 +15,11 @@ class DashboardFlow: Flow {
         return self.rootViewController
     }
 
-    let rootViewController = UITabBarController()
+    lazy var rootViewController: UITabBarController = {
+        let tbc = UITabBarController()
+        tbc.tabBar.isTranslucent = false
+        return tbc
+    }()
     private let dependencies: GlobalAppDependencies
 
     init(withDependencies dependencies: GlobalAppDependencies) {
