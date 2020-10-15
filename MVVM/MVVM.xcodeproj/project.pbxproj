@@ -247,6 +247,15 @@
 			path = json;
 			sourceTree = "<group>";
 		};
+		6BFBDD0725387E020075F520 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				6BFBDCEF25387A450075F520 /* json */,
+				6BFBDD0225387BEB0075F520 /* Mockable.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		DC2F5B722536DC4D004B8EE9 /* Actors */ = {
 			isa = PBXGroup;
 			children = (
@@ -382,10 +391,9 @@
 		DC4801942535BA8F00C99264 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				6BFBDCEF25387A450075F520 /* json */,
+				6BFBDD0725387E020075F520 /* Mocks */,
 				DC4801982535BADE00C99264 /* Movie.swift */,
 				6B29CAC02535D73700C1FCEA /* MovieDetail.swift */,
-				6BFBDD0225387BEB0075F520 /* Mockable.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
