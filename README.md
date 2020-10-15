@@ -1,7 +1,5 @@
 # MVVM-Boilerplate
 
---------
-
 [TOC]
 
 iOS MVVM Boilerplate Project
