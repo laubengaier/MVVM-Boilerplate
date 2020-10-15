@@ -23,6 +23,8 @@
 		DC2F5B752536DC65004B8EE9 /* ActorListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2F5B742536DC65004B8EE9 /* ActorListVM.swift */; };
 		DC2F5B7A2536DC6D004B8EE9 /* ActorListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2F5B792536DC6D004B8EE9 /* ActorListVC.swift */; };
 		DC2F5B7F2536DCC6004B8EE9 /* ActorFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2F5B7E2536DCC6004B8EE9 /* ActorFlow.swift */; };
+		DC4378E725387860001F3C3B /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = DC4378E625387860001F3C3B /* Nimble */; };
+		DC4378ED25387886001F3C3B /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = DC4378EC25387886001F3C3B /* Quick */; };
 		DC4800F62535A3CD00C99264 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4800F52535A3CD00C99264 /* AppDelegate.swift */; };
 		DC4800F82535A3CD00C99264 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4800F72535A3CD00C99264 /* SceneDelegate.swift */; };
 		DC4800FA2535A3CD00C99264 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4800F92535A3CD00C99264 /* ViewController.swift */; };
@@ -143,6 +145,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC4378ED25387886001F3C3B /* Quick in Frameworks */,
+				DC4378E725387860001F3C3B /* Nimble in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +464,10 @@
 				DC48010A2535A3CF00C99264 /* PBXTargetDependency */,
 			);
 			name = MVVMTests;
+			packageProductDependencies = (
+				DC4378E625387860001F3C3B /* Nimble */,
+				DC4378EC25387886001F3C3B /* Quick */,
+			);
 			productName = MVVMTests;
 			productReference = DC4801082535A3CF00C99264 /* MVVMTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -520,6 +528,8 @@
 				DC4801752535ABF000C99264 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 				DC48017D2535AC3F00C99264 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				DC4801C72535CBCF00C99264 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				DC4378E525387860001F3C3B /* XCRemoteSwiftPackageReference "Nimble" */,
+				DC4378EB25387886001F3C3B /* XCRemoteSwiftPackageReference "Quick" */,
 			);
 			productRefGroup = DC4800F32535A3CD00C99264 /* Products */;
 			projectDirPath = "";
@@ -930,6 +940,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DC4378E525387860001F3C3B /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+		DC4378EB25387886001F3C3B /* XCRemoteSwiftPackageReference "Quick" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Quick";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		DC48012C2535A53300C99264 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift";
@@ -981,6 +1007,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DC4378E625387860001F3C3B /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC4378E525387860001F3C3B /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
+		};
+		DC4378EC25387886001F3C3B /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC4378EB25387886001F3C3B /* XCRemoteSwiftPackageReference "Quick" */;
+			productName = Quick;
+		};
 		DC48012D2535A53300C99264 /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DC48012C2535A53300C99264 /* XCRemoteSwiftPackageReference "RxSwift" */;
