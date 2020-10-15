@@ -66,7 +66,7 @@ extension MovieProvider: APIProvider {
 
 public class MovieService: MovieServicable {
     
-    let apiClient: APIClient
+    public let apiClient: APIClient
     
     let movieProvider: MoyaProvider<MovieProvider>
     
