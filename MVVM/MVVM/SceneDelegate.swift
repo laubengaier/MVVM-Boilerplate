@@ -26,8 +26,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.overrideUserInterfaceStyle = .dark
         
         if ProcessInfo.processInfo.environment["TEST"] == "1" {
-            // Add Mock Deps here
-            print("Should use mock dependencies")
+            let factory = DependencyFactory()
+            self.dependencies = factory.create()
         } else {
             let factory = DependencyFactory()
             self.dependencies = factory.create()
@@ -44,7 +44,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let dependencies = self.dependencies else { return }
         
         let appFlow = AppFlow(dependencies: dependencies)
-
+        
         self.coordinator.coordinate(flow: appFlow, with: AppStepper(withDependencies: dependencies))
 
         UINavigationBar.appearance().tintColor = .white

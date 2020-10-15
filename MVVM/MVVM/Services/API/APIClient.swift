@@ -13,6 +13,10 @@ public final class APIClient {
     
     let apiKey: String
     
+    private var isTestEnvironment: Bool {
+        return ProcessInfo.processInfo.environment["TEST"] == "1"
+    }
+    
     init(apiKey: String){
         self.apiKey = apiKey
     }
@@ -27,6 +31,11 @@ public final class APIClient {
         
         // You can add more plugins
         let plugins = [tokenPlugin]
+        
+        guard !self.isTestEnvironment else {
+            print("Stubbing each and every request.")
+            return MoyaProvider<T>(stubClosure: MoyaProvider<T>.immediatelyStub)
+        }
         
         return MoyaProvider<T>(endpointClosure: endpointClosure,
                                requestClosure: requestClosure,
