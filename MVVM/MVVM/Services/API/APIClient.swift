@@ -9,7 +9,7 @@ import Foundation
 import Moya
 import RxSwift
 
-public class APIClient {
+public final class APIClient {
     
     let apiKey: String
     
