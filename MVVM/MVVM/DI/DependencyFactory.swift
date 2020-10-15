@@ -26,8 +26,11 @@ public class DependencyFactory: DependencyFactoryProtocol {
         
         let apiClient: APIClient = self.makeAPIClient(apiKey: apiKey)
         
+        let movieService: MovieServicable = self.makeMovieService(apiClient: apiClient)
+        
         return AppDependencies(apiKey: apiKey,
-                               apiClient: apiClient)
+                               apiClient: apiClient,
+                               movieService: movieService)
         
     }
     
@@ -38,6 +41,11 @@ public class DependencyFactory: DependencyFactoryProtocol {
     
     private func makeAPIClient(apiKey: String) -> APIClient {
         let ret: APIClient = APIClient(apiKey: apiKey)
+        return ret
+    }
+    
+    private func makeMovieService(apiClient: APIClient) -> MovieServicable {
+        let ret: MovieServicable = MovieService(apiClient: apiClient)
         return ret
     }
 }

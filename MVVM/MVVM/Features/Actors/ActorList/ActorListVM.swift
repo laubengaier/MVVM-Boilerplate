@@ -13,19 +13,21 @@ import RxRelay
 
 class ActorListVM : Stepper {
     
+    typealias Dependencies = HasMovieService
+    
     let steps = PublishRelay<Step>()
-    let services: AppServices
+    let dependencies: Dependencies
     let disposeBag = DisposeBag()
     
     let data = BehaviorRelay<[Movie]>(value: [])
     
-    init(services: AppServices) {
-        self.services = services
+    init(dependencies: Dependencies) {
+        self.dependencies = dependencies
         fetchActors()
     }
     
     func fetchActors() {
-        services
+        self.dependencies
         .movieService
         .nowPlaying()
         .subscribe { [weak self] (movies) in

@@ -54,7 +54,7 @@ class MovieDetailVC : UIViewController {
         .flatMap({ (movie) -> Observable<[(String, String)]> in
             guard let movie = movie else { return .just([]) }
             var details = [(String, String)]()
-            details.append(("Title", movie.title + " | " + movie.originalTitle))
+            details.append(("Title", movie.title == movie.originalTitle ? movie.title : movie.title + " | " + movie.originalTitle))
             details.append(("Overview", movie.overview))
             if movie.tagline.count > 0 {
                 details.append(("Tags", movie.tagline))

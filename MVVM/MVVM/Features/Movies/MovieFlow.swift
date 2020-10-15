@@ -23,10 +23,10 @@ class MovieFlow: Flow {
         return nvc
     }()
     private let movieStepper: MovieStepper
-    private let services: AppServices
+    private let dependencies: GlobalAppDependencies
 
-    init(withServices services: AppServices, andStepper stepper: MovieStepper) {
-        self.services = services
+    init(withDependencies dependencies: GlobalAppDependencies, andStepper stepper: MovieStepper) {
+        self.dependencies = dependencies
         self.movieStepper = stepper
     }
 
@@ -48,7 +48,7 @@ class MovieFlow: Flow {
     }
 
     private func navigateToMovieLists() -> FlowContributors {
-        let vm = MovieListVM(services: services)
+        let vm = MovieListVM(dependencies: self.dependencies)
         let vc = MovieListVC(viewModel: vm)
         
         self.rootViewController.pushViewController(vc, animated: true)
@@ -61,7 +61,7 @@ class MovieFlow: Flow {
     }
     
     private func navigateToMovieDetail(id: Int) -> FlowContributors {
-        let vm = MovieDetailVM(services: services, movieId: id)
+        let vm = MovieDetailVM(dependencies: self.dependencies, movieId: id)
         let vc = MovieDetailVC(viewModel: vm)
         
         self.rootViewController.pushViewController(vc, animated: true)

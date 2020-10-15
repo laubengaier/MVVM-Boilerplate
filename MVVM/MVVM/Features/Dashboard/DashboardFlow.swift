@@ -16,10 +16,10 @@ class DashboardFlow: Flow {
     }
 
     let rootViewController = UITabBarController()
-    private let services: AppServices
+    private let dependencies: GlobalAppDependencies
 
-    init(withServices services: AppServices) {
-        self.services = services
+    init(withDependencies dependencies: GlobalAppDependencies) {
+        self.dependencies = dependencies
     }
 
     deinit {
@@ -40,13 +40,13 @@ class DashboardFlow: Flow {
     private func navigateToDashboard() -> FlowContributors {
         
         let movieStepper = MovieStepper()
-        let movieFlow = MovieFlow(withServices: self.services, andStepper: movieStepper)
+        let movieFlow = MovieFlow(withDependencies: self.dependencies, andStepper: movieStepper)
         
         let actorsStepper = ActorFlowStepper()
-        let actorFlow = ActorFlow(withServices: self.services)
+        let actorFlow = ActorFlow(withDependencies: self.dependencies)
         
         let searchStepper = SearchFlowStepper()
-        let searchFlow = SearchFlow(withServices: self.services)
+        let searchFlow = SearchFlow(withDependencies: self.dependencies)
 
         Flows.use(movieFlow, actorFlow, searchFlow, when: .created) { [unowned self] (root1: UINavigationController, root2: UINavigationController, root3: UINavigationController) in
             let tabBarItem1 = UITabBarItem(title: "MovieList", image: UIImage(systemName: "house"), selectedImage: nil)

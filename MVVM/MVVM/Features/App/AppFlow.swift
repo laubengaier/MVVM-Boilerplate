@@ -23,10 +23,10 @@ class AppFlow: Flow {
         return viewController
     }()
 
-    private let services: AppServices
+    private let dependencies: GlobalAppDependencies
 
-    init(services: AppServices) {
-        self.services = services
+    init(dependencies: GlobalAppDependencies) {
+        self.dependencies = dependencies
     }
 
     deinit {
@@ -57,7 +57,7 @@ class AppFlow: Flow {
 //                withNextStepper: vm
 //            )
 //        )
-        let dashboardFlow = DashboardFlow(withServices: self.services)
+        let dashboardFlow = DashboardFlow(withDependencies: self.dependencies)
 
         Flows.use(dashboardFlow, when: .created) { [unowned self] root in
             self.rootViewController.pushViewController(root, animated: false)
@@ -68,7 +68,7 @@ class AppFlow: Flow {
     }
     
     private func navigateToMovieDetail(id: Int) -> FlowContributors {
-        let vm = MovieDetailVM(services: services, movieId: id)
+        let vm = MovieDetailVM(dependencies: self.dependencies, movieId: id)
         let vc = MovieDetailVC(viewModel: vm)
         
         self.rootViewController.pushViewController(vc, animated: true)

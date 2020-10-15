@@ -14,7 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     let disposeBag = DisposeBag()
     var window: UIWindow?
     var coordinator = FlowCoordinator()
-    var appServices: AppServices?
+    var dependencies: GlobalAppDependencies?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
@@ -25,11 +25,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // UI Madness
         window.overrideUserInterfaceStyle = .dark
         
-        let factory = DependencyFactory()
         
-        let dependencies = factory.create()
+        if ProcessInfo.processInfo.environment["TEST"] == "1" {
+            // Add Mock Deps here
+            print("Should use mock dependencies")
+        } else {
+            let factory = DependencyFactory()
+            self.dependencies = factory.create()
+        }
         
-        self.appServices = AppServices(dependencies: dependencies)
+        
         
         self.coordinator.rx.willNavigate.subscribe(onNext: { (flow, step) in
             print("will navigate to flow=\(flow) and step=\(step)")
@@ -39,11 +44,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             print("did navigate to flow=\(flow) and step=\(step)")
         }).disposed(by: self.disposeBag)
 
-        guard let appServices = self.appServices else { return }
+        guard let dependencies = self.dependencies else { return }
         
-        let appFlow = AppFlow(services: appServices)
+        let appFlow = AppFlow(dependencies: dependencies)
 
-        self.coordinator.coordinate(flow: appFlow, with: AppStepper(withServices: appServices))
+        self.coordinator.coordinate(flow: appFlow, with: AppStepper(withDependencies: dependencies))
 
         UINavigationBar.appearance().tintColor = .white
         UITabBar.appearance().tintColor = .white

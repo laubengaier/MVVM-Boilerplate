@@ -23,10 +23,10 @@ class SearchFlow: Flow {
         return nvc
     }()
     
-    private let services: AppServices
+    private let dependencies: GlobalAppDependencies
 
-    init(withServices services: AppServices) {
-        self.services = services
+    init(withDependencies dependencies: GlobalAppDependencies) {
+        self.dependencies = dependencies
     }
 
     deinit {
@@ -47,7 +47,7 @@ class SearchFlow: Flow {
     }
 
     private func navigateToSearch() -> FlowContributors {
-        let vm = SearchListVM(services: services)
+        let vm = SearchListVM(dependencies: self.dependencies)
         let vc = SearchListVC(viewModel: vm)
         
         self.rootViewController.pushViewController(vc, animated: true)
@@ -60,7 +60,7 @@ class SearchFlow: Flow {
     }
     
     private func navigateToMovieDetail(id: Int) -> FlowContributors {
-        let vm = MovieDetailVM(services: services, movieId: id)
+        let vm = MovieDetailVM(dependencies: self.dependencies, movieId: id)
         let vc = MovieDetailVC(viewModel: vm)
         
         self.rootViewController.pushViewController(vc, animated: true)

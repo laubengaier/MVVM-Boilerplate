@@ -13,18 +13,20 @@ import RxRelay
 
 class SearchListVM : Stepper {
     
+    typealias Dependencies = HasMovieService
+    
+    let dependencies: Dependencies
     let steps = PublishRelay<Step>()
-    let services: AppServices
     let disposeBag = DisposeBag()
     
     let data = BehaviorRelay<[Movie]>(value: [])
     
-    init(services: AppServices) {
-        self.services = services
+    init(dependencies: Dependencies) {
+        self.dependencies = dependencies
     }
     
     func search(query: String) {
-        self.services
+        self.dependencies
             .movieService
             .search(query: query)
             .subscribe { (result) in

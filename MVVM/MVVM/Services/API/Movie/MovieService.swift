@@ -64,18 +64,15 @@ extension MovieProvider: APIProvider {
     
 }
 
-
 public class MovieService: MovieServicable {
     
-    typealias Dependencies = HasAPIClient
-    
-    let dependencies: Dependencies
+    let apiClient: APIClient
     
     let movieProvider: MoyaProvider<MovieProvider>
     
-    init(dependencies: Dependencies){
-        self.dependencies = dependencies
-        self.movieProvider = self.dependencies.apiClient.createProvider(for: MovieProvider.self)
+    init(apiClient: APIClient){
+        self.apiClient = apiClient
+        self.movieProvider = self.apiClient.createProvider(for: MovieProvider.self)
     }
     
     public func nowPlaying() -> Single<[Movie]> {
@@ -84,8 +81,7 @@ public class MovieService: MovieServicable {
         return request
         .asObservable()
         .flatMap { (response) -> Observable<Response> in
-            self.dependencies
-                .apiClient
+            self.apiClient
                 .handlePossibleErrors(response: response, errorType: MovieError.self)
         }
         .map(MovieResultWrapper.self)
@@ -99,8 +95,7 @@ public class MovieService: MovieServicable {
         return request
         .asObservable()
         .flatMap { (response) -> Observable<Response> in
-            return self.dependencies
-                .apiClient
+            return self.apiClient
                 .handlePossibleErrors(response: response, errorType: MovieError.self)
         }
         .map(MovieResultWrapper.self)
@@ -114,8 +109,7 @@ public class MovieService: MovieServicable {
         return request
         .asObservable()
         .flatMap { (response) -> Observable<Response> in
-            return self.dependencies
-                .apiClient
+            return self.apiClient
                 .handlePossibleErrors(response: response, errorType: MovieError.self)
         }
         .map(MovieDetail.self)
