@@ -13,11 +13,11 @@ import RxFlow
 class AppStepper: Stepper {
 
     let steps = PublishRelay<Step>()
-    private let appServices: AppServices
+    private let dependencies: GlobalAppDependencies
     private let disposeBag = DisposeBag()
 
-    init(withServices services: AppServices) {
-        self.appServices = services
+    init(withDependencies dependencies: GlobalAppDependencies) {
+        self.dependencies = dependencies
     }
 
     var initialStep: Step {

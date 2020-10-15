@@ -1,8 +1,8 @@
 //
-//  MovieListFlow.swift
+//  SearchFlow.swift
 //  MVVM
 //
-//  Created by Timotheus Laubengaier on 13.10.20.
+//  Created by Mario Zimmermann on 14.10.20.
 //
 
 import Foundation
@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import UIKit
 
-class MovieFlow: Flow {
+class SearchFlow: Flow {
 
     var root: Presentable {
         return self.rootViewController
@@ -22,12 +22,11 @@ class MovieFlow: Flow {
         nvc.navigationBar.prefersLargeTitles = true
         return nvc
     }()
-    private let movieStepper: MovieStepper
-    private let services: AppServices
+    
+    private let dependencies: GlobalAppDependencies
 
-    init(withServices services: AppServices, andStepper stepper: MovieStepper) {
-        self.services = services
-        self.movieStepper = stepper
+    init(withDependencies dependencies: GlobalAppDependencies) {
+        self.dependencies = dependencies
     }
 
     deinit {
@@ -38,18 +37,18 @@ class MovieFlow: Flow {
         guard let step = step as? AppStep else { return .none }
 
         switch step {
-        case .movieList:
-            return navigateToMovieLists()
+        case .search:
+            return navigateToSearch()
         case .movieDetail(let id):
-            return navigateToMovieDetail(id: id)
+            return self.navigateToMovieDetail(id: id)
         default:
             return .none
         }
     }
 
-    private func navigateToMovieLists() -> FlowContributors {
-        let vm = MovieListVM(services: services)
-        let vc = MovieListVC(viewModel: vm)
+    private func navigateToSearch() -> FlowContributors {
+        let vm = SearchListVM(dependencies: self.dependencies)
+        let vc = SearchListVC(viewModel: vm)
         
         self.rootViewController.pushViewController(vc, animated: true)
         return .one(
@@ -61,7 +60,7 @@ class MovieFlow: Flow {
     }
     
     private func navigateToMovieDetail(id: Int) -> FlowContributors {
-        let vm = MovieDetailVM(services: services, movieId: id)
+        let vm = MovieDetailVM(dependencies: self.dependencies, movieId: id)
         let vc = MovieDetailVC(viewModel: vm)
         
         self.rootViewController.pushViewController(vc, animated: true)
@@ -72,10 +71,10 @@ class MovieFlow: Flow {
             )
         )
     }
-
+    
 }
 
-class MovieStepper: Stepper {
+class SearchFlowStepper: Stepper {
 
     let steps = PublishRelay<Step>()
 

@@ -8,11 +8,13 @@
 import Foundation
 
 public protocol GlobalAppDependencies: HasAPIClient &
-                                       HasAPIKey {}
+                                       HasAPIKey &
+                                       HasMovieService {}
 
 public struct AppDependencies: GlobalAppDependencies {
     public var apiKey: String
     public var apiClient: APIClient
+    public var movieService: MovieServicable
 }
 
 

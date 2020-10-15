@@ -12,25 +12,26 @@ import RxCocoa
 
 class MovieDetailVM : Stepper {
     
+    typealias Dependencies = HasMovieService
+    
     let steps = PublishRelay<Step>()
-    let services: AppServices
+    let dependencies: Dependencies
     let disposeBag = DisposeBag()
     
     let movieId: Int
     
     let data = BehaviorRelay<MovieDetail?>(value: nil)
     
-    init(services: AppServices, movieId: Int) {
-        self.services = services
+    init(dependencies: GlobalAppDependencies, movieId: Int) {
+        self.dependencies = dependencies
         self.movieId = movieId
         fetchMovie()
     }
     
     func fetchMovie() {
-        services
+        self.dependencies
         .movieService
         .details(for: movieId)
-        .debug()
         .subscribe { [weak self] (movie) in
             guard let self = self else { return }
             self.data.accept(movie)

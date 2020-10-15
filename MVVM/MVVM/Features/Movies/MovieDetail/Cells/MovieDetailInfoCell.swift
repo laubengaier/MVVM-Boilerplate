@@ -22,7 +22,7 @@ class MovieDetailInfoCell : UITableViewCell {
     lazy var infoLabel: UILabel = {
         let view = UILabel()
         view.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        view.numberOfLines = 10
+        view.numberOfLines = 0
         view.textColor = UIColor.white.withAlphaComponent(0.75)
         return view
     }()

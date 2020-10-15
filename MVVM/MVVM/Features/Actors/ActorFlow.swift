@@ -23,10 +23,10 @@ class ActorFlow: Flow {
         return nvc
     }()
     
-    private let services: AppServices
+    private let dependencies: GlobalAppDependencies
 
-    init(withServices services: AppServices) {
-        self.services = services        
+    init(withDependencies dependencies: GlobalAppDependencies) {
+        self.dependencies = dependencies
     }
 
     deinit {
@@ -45,7 +45,7 @@ class ActorFlow: Flow {
     }
 
     private func navigateToActorList() -> FlowContributors {
-        let vm = ActorListVM(services: services)
+        let vm = ActorListVM(dependencies: self.dependencies)
         let vc = ActorListVC(viewModel: vm)
         
         self.rootViewController.pushViewController(vc, animated: true)
