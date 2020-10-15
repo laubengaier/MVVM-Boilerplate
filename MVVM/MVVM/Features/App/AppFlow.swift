@@ -47,30 +47,21 @@ class AppFlow: Flow {
     }
 
     private func navigateToDashboard() -> FlowContributors {
-//        let vm = DashboardVM(services: services)
-//        let vc = DashboardVC(viewModel: vm)
-//
-//        self.rootViewController.pushViewController(vc, animated: true)
-//        return .one(
-//            flowContributor: .contribute(
-//                withNextPresentable: vc,
-//                withNextStepper: vm
-//            )
-//        )
-        let dashboardFlow = DashboardFlow(withDependencies: self.dependencies)
-
+        let dashboardFlow = DashboardFlow(withDependencies: dependencies)
         Flows.use(dashboardFlow, when: .created) { [unowned self] root in
             self.rootViewController.pushViewController(root, animated: false)
         }
-
-        return .one(flowContributor: .contribute(withNextPresentable: dashboardFlow,
-                                                         withNextStepper: OneStepper(withSingleStep: AppStep.dashboard)))
+        return .one(
+            flowContributor: .contribute(
+                withNextPresentable: dashboardFlow,
+                withNextStepper: OneStepper(withSingleStep: AppStep.dashboard)
+            )
+        )
     }
     
     private func navigateToMovieDetail(id: Int) -> FlowContributors {
         let vm = MovieDetailVM(dependencies: self.dependencies, movieId: id)
         let vc = MovieDetailVC(viewModel: vm)
-        
         self.rootViewController.pushViewController(vc, animated: true)
         return .one(
             flowContributor: .contribute(
