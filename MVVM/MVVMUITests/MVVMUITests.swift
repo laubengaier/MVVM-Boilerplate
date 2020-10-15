@@ -29,9 +29,13 @@ class MVVMUITests: XCTestCase {
                 
         let secondTab = app.tabBars.buttons.element(boundBy: 1)
         secondTab.tap()
-        
         let actors = app.staticTexts["Actors"]
         XCTAssertTrue(actors.waitForExistence(timeout: 5))
+        
+        let thirdTab = app.tabBars.buttons.element(boundBy: 2)
+        thirdTab.tap()
+        let search = app.staticTexts["Suche"]
+        XCTAssertTrue(search.waitForExistence(timeout: 5))
         
         let firstTab = app.tabBars.buttons.firstMatch
         firstTab.tap()
@@ -70,6 +74,27 @@ class MVVMUITests: XCTestCase {
         // move back
         app.navigationBars.buttons.firstMatch.tap()
         XCTAssertTrue(dashboard.waitForExistence(timeout: 5))
+    }
+    
+    func testSearch() throws {
+        let dashboard = app.staticTexts["Dashboard"]
+        XCTAssertTrue(dashboard.waitForExistence(timeout: 5))
+        
+        let thirdTab = app.tabBars.buttons.element(boundBy: 2)
+        thirdTab.tap()
+        let search = app.staticTexts["Suche"]
+        XCTAssertTrue(search.waitForExistence(timeout: 5))
+        
+        app.searchFields.firstMatch.tap()
+        app.typeText("Peninsula")
+        
+        let firstMovieCell = app.tables.cells.firstMatch
+        XCTAssertTrue(firstMovieCell.waitForExistence(timeout: 5))
+        firstMovieCell.tap()
+        
+        // move back
+        app.navigationBars.buttons.firstMatch.tap()        
+        app.buttons["Cancel"].tap()
     }
 
 }
