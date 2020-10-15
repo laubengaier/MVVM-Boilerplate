@@ -27,7 +27,7 @@ class MovieListVC : UIViewController {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         
-        title = "Dashboard"
+        title = "Movies"
         view.backgroundColor = .systemBackground
         
         view.addSubview(tableView)
@@ -47,9 +47,7 @@ class MovieListVC : UIViewController {
     
     func setup() {
         
-        tableView.register(
-            MovieCell.self, forCellReuseIdentifier: MovieCell.reuseIdentifier
-        )
+        tableView.register(MovieCell.self, forCellReuseIdentifier: MovieCell.reuseIdentifier)
         
         viewModel
         .data
@@ -57,10 +55,7 @@ class MovieListVC : UIViewController {
             to: tableView.rx.items(cellIdentifier: MovieCell.reuseIdentifier)
         ) { index, model, cell in
             guard let cell = cell as? MovieCell else { return }
-            cell.titleLabel.text = model.title
-            cell.descriptionLabel.text = model.overview
-            cell.movieImageView.kf.setImage(with: model.posterImageUrl, options: [.transition(.fade(0.4)), .forceTransition])
-            cell.backgroundImageView.kf.setImage(with: model.backdropImageUrl, options: [.transition(.fade(0.4)), .forceTransition])
+            cell.setup(model: model)
         }
         .disposed(by: disposeBag)
         

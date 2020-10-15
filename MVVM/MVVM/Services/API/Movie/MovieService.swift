@@ -77,7 +77,6 @@ public class MovieService: MovieServicable {
     
     public func nowPlaying() -> Single<[Movie]> {
         let request = self.movieProvider.rx.request(.nowPlaying)
-        
         return request
         .asObservable()
         .flatMap { (response) -> Observable<Response> in

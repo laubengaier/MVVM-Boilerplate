@@ -12,6 +12,19 @@ class MovieDetailInfoCell : UITableViewCell {
     
     static let reuseIdentifier = "MovieDetailInfoCell"
     
+    struct Model {
+        let title: String
+        let info: String
+        
+        init?(title: String, info: String?) {
+            self.title = title
+            guard let info = info else {
+                return nil
+            }
+            self.info = info
+        }
+    }
+    
     lazy var titleLabel: UILabel = {
         let view = UILabel()
         view.font = UIFont.systemFont(ofSize: 14, weight: .bold)
@@ -51,6 +64,11 @@ class MovieDetailInfoCell : UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setup(model: Model) {
+        self.titleLabel.text = model.title
+        self.infoLabel.text = model.info
     }
     
     override func prepareForReuse() {

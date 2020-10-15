@@ -88,6 +88,19 @@ class MovieCell : UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setup(model: Model) {
+        self.titleLabel.text = model.title
+        self.descriptionLabel.text = model.description
+        self.backgroundImageView.kf.setImage(
+            with: model.backgroundImageUrl,
+            options: [.transition(.fade(0.4)), .forceTransition]
+        )
+        self.movieImageView.kf.setImage(
+            with: model.imageUrl,
+            options: [.transition(.fade(0.4)), .forceTransition]
+        )
+    }
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         titleLabel.text = nil
@@ -95,4 +108,14 @@ class MovieCell : UITableViewCell {
         movieImageView.image = nil
     }
     
+}
+
+extension MovieCell {
+    struct Model {
+        let id: Int
+        let title: String
+        let description: String?
+        let backgroundImageUrl: URL?
+        let imageUrl: URL?
+    }
 }

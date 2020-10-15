@@ -19,7 +19,7 @@ class MovieListVM : Stepper {
     let dependencies: Dependencies
     let disposeBag = DisposeBag()
     
-    let data = BehaviorRelay<[Movie]>(value: [])
+    let data = BehaviorRelay<[MovieCell.Model]>(value: [])
     
     init(dependencies: Dependencies) {
         self.dependencies = dependencies
@@ -32,7 +32,15 @@ class MovieListVM : Stepper {
         .nowPlaying()
         .subscribe { [weak self] (movies) in
             guard let self = self else { return }
-            self.data.accept(movies)
+            self.data.accept(movies.map({
+                MovieCell.Model(
+                    id: $0.id,
+                    title: $0.title,
+                    description: $0.overview,
+                    backgroundImageUrl: $0.backdropImageUrl,
+                    imageUrl: $0.posterImageUrl
+                )
+            }))
         } onError: { (error) in
             print(error)
         }

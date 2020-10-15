@@ -24,7 +24,7 @@ class MVVMUITests: XCTestCase {
     }
     
     func testTabs() throws {
-        let dashboard = app.staticTexts["Dashboard"]
+        let dashboard = app.staticTexts["Movies"]
         XCTAssertTrue(dashboard.waitForExistence(timeout: 5))
                 
         let secondTab = app.tabBars.buttons.element(boundBy: 1)
@@ -43,7 +43,7 @@ class MVVMUITests: XCTestCase {
     }
 
     func testMovies() throws {
-        let dashboard = app.staticTexts["Dashboard"]
+        let dashboard = app.staticTexts["Movies"]
         XCTAssertTrue(dashboard.waitForExistence(timeout: 5))
         
         let firstMovieCell = app.tables.cells.firstMatch
@@ -55,7 +55,7 @@ class MVVMUITests: XCTestCase {
     }
     
     func testMovieDetails() {
-        let dashboard = app.staticTexts["Dashboard"]
+        let dashboard = app.staticTexts["Movies"]
         XCTAssertTrue(dashboard.waitForExistence(timeout: 5))
         
         let firstMovieCell = app.tables.cells.firstMatch
@@ -77,7 +77,7 @@ class MVVMUITests: XCTestCase {
     }
     
     func testSearch() throws {
-        let dashboard = app.staticTexts["Dashboard"]
+        let dashboard = app.staticTexts["Movies"]
         XCTAssertTrue(dashboard.waitForExistence(timeout: 5))
         
         let thirdTab = app.tabBars.buttons.element(boundBy: 2)
@@ -93,7 +93,7 @@ class MVVMUITests: XCTestCase {
         firstMovieCell.tap()
         
         // move back
-        app.navigationBars.buttons.firstMatch.tap()        
+        app.navigationBars.buttons.firstMatch.tap()
         app.buttons["Cancel"].tap()
     }
 
