@@ -20,6 +20,9 @@
 		6B997A482536ED5B008AA4B3 /* SearchFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B997A472536ED5B008AA4B3 /* SearchFlow.swift */; };
 		6B997A512536ED75008AA4B3 /* SearchListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B997A502536ED75008AA4B3 /* SearchListVM.swift */; };
 		6B997A562536ED7C008AA4B3 /* SearchListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B997A552536ED7C008AA4B3 /* SearchListVC.swift */; };
+		6BFBDCF125387A560075F520 /* Movie.json in Resources */ = {isa = PBXBuildFile; fileRef = 6BFBDCF025387A560075F520 /* Movie.json */; };
+		6BFBDCFE25387B6A0075F520 /* MovieDetails.json in Resources */ = {isa = PBXBuildFile; fileRef = 6BFBDCFD25387B6A0075F520 /* MovieDetails.json */; };
+		6BFBDD0325387BEB0075F520 /* Mockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFBDD0225387BEB0075F520 /* Mockable.swift */; };
 		DC2F5B752536DC65004B8EE9 /* ActorListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2F5B742536DC65004B8EE9 /* ActorListVM.swift */; };
 		DC2F5B7A2536DC6D004B8EE9 /* ActorListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2F5B792536DC6D004B8EE9 /* ActorListVC.swift */; };
 		DC2F5B7F2536DCC6004B8EE9 /* ActorFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2F5B7E2536DCC6004B8EE9 /* ActorFlow.swift */; };
@@ -90,6 +93,9 @@
 		6B997A472536ED5B008AA4B3 /* SearchFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFlow.swift; sourceTree = "<group>"; };
 		6B997A502536ED75008AA4B3 /* SearchListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListVM.swift; sourceTree = "<group>"; };
 		6B997A552536ED7C008AA4B3 /* SearchListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListVC.swift; sourceTree = "<group>"; };
+		6BFBDCF025387A560075F520 /* Movie.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Movie.json; sourceTree = "<group>"; };
+		6BFBDCFD25387B6A0075F520 /* MovieDetails.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MovieDetails.json; sourceTree = "<group>"; };
+		6BFBDD0225387BEB0075F520 /* Mockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mockable.swift; sourceTree = "<group>"; };
 		DC2F5B742536DC65004B8EE9 /* ActorListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorListVM.swift; sourceTree = "<group>"; };
 		DC2F5B792536DC6D004B8EE9 /* ActorListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorListVC.swift; sourceTree = "<group>"; };
 		DC2F5B7E2536DCC6004B8EE9 /* ActorFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorFlow.swift; sourceTree = "<group>"; };
@@ -232,6 +238,15 @@
 			path = SearchList;
 			sourceTree = "<group>";
 		};
+		6BFBDCEF25387A450075F520 /* json */ = {
+			isa = PBXGroup;
+			children = (
+				6BFBDCF025387A560075F520 /* Movie.json */,
+				6BFBDCFD25387B6A0075F520 /* MovieDetails.json */,
+			);
+			path = json;
+			sourceTree = "<group>";
+		};
 		DC2F5B722536DC4D004B8EE9 /* Actors */ = {
 			isa = PBXGroup;
 			children = (
@@ -367,8 +382,10 @@
 		DC4801942535BA8F00C99264 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				6BFBDCEF25387A450075F520 /* json */,
 				DC4801982535BADE00C99264 /* Movie.swift */,
 				6B29CAC02535D73700C1FCEA /* MovieDetail.swift */,
+				6BFBDD0225387BEB0075F520 /* Mockable.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -549,7 +566,9 @@
 			files = (
 				DC4801022535A3CF00C99264 /* LaunchScreen.storyboard in Resources */,
 				DC4800FF2535A3CF00C99264 /* Assets.xcassets in Resources */,
+				6BFBDCF125387A560075F520 /* Movie.json in Resources */,
 				DC4800FD2535A3CD00C99264 /* Main.storyboard in Resources */,
+				6BFBDCFE25387B6A0075F520 /* MovieDetails.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,6 +615,7 @@
 				DC4801AC2535C22D00C99264 /* MovieCell.swift in Sources */,
 				6B29CAC12535D73700C1FCEA /* MovieDetail.swift in Sources */,
 				6B3524032535AACF002A87DA /* AuthPlugin.swift in Sources */,
+				6BFBDD0325387BEB0075F520 /* Mockable.swift in Sources */,
 				DC2F5B7F2536DCC6004B8EE9 /* ActorFlow.swift in Sources */,
 				6B3523FB2535AA9A002A87DA /* APIProvider.swift in Sources */,
 				DC4800F82535A3CD00C99264 /* SceneDelegate.swift in Sources */,

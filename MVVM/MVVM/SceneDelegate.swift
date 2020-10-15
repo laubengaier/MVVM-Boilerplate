@@ -25,7 +25,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // UI Madness
         window.overrideUserInterfaceStyle = .dark
         
-        
         if ProcessInfo.processInfo.environment["TEST"] == "1" {
             // Add Mock Deps here
             print("Should use mock dependencies")
@@ -34,8 +33,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.dependencies = factory.create()
         }
         
-        
-        
         self.coordinator.rx.willNavigate.subscribe(onNext: { (flow, step) in
             print("will navigate to flow=\(flow) and step=\(step)")
         }).disposed(by: self.disposeBag)
@@ -43,7 +40,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.coordinator.rx.didNavigate.subscribe(onNext: { (flow, step) in
             print("did navigate to flow=\(flow) and step=\(step)")
         }).disposed(by: self.disposeBag)
-
+        
         guard let dependencies = self.dependencies else { return }
         
         let appFlow = AppFlow(dependencies: dependencies)
