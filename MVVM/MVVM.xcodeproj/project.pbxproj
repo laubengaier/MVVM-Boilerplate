@@ -56,7 +56,7 @@
 		DC4801C92535CBD000C99264 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DC4801C82535CBD000C99264 /* Kingfisher */; };
 		DC4801DE2535DDC400C99264 /* MovieDetailInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4801DD2535DDC400C99264 /* MovieDetailInfoCell.swift */; };
 		DC4801F02535E4F200C99264 /* MovieDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4801EF2535E4F100C99264 /* MovieDetailHeaderView.swift */; };
-		DC4801F82535E8AB00C99264 /* DashboardFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4801F72535E8AB00C99264 /* DashboardFlow.swift */; };
+		DC4801F82535E8AB00C99264 /* TabFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4801F72535E8AB00C99264 /* TabFlow.swift */; };
 		DC4802002535E9FC00C99264 /* MovieListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4801FF2535E9FB00C99264 /* MovieListVC.swift */; };
 		DC4802062535EA1300C99264 /* MovieListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4802052535EA1300C99264 /* MovieListVM.swift */; };
 		DC48020E2535EA2B00C99264 /* MovieFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC48020D2535EA2B00C99264 /* MovieFlow.swift */; };
@@ -122,7 +122,7 @@
 		DC4801AB2535C22D00C99264 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		DC4801DD2535DDC400C99264 /* MovieDetailInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailInfoCell.swift; sourceTree = "<group>"; };
 		DC4801EF2535E4F100C99264 /* MovieDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailHeaderView.swift; sourceTree = "<group>"; };
-		DC4801F72535E8AB00C99264 /* DashboardFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardFlow.swift; sourceTree = "<group>"; };
+		DC4801F72535E8AB00C99264 /* TabFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabFlow.swift; sourceTree = "<group>"; };
 		DC4801FF2535E9FB00C99264 /* MovieListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListVC.swift; sourceTree = "<group>"; };
 		DC4802052535EA1300C99264 /* MovieListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListVM.swift; sourceTree = "<group>"; };
 		DC48020D2535EA2B00C99264 /* MovieFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieFlow.swift; sourceTree = "<group>"; };
@@ -341,8 +341,8 @@
 		DC4801472535A7BF00C99264 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				DC4801492535A7CF00C99264 /* App */,
-				DC4801482535A7C500C99264 /* Dashboard */,
+				DC4801492535A7CF00C99264 /* App Flow */,
+				DC4801482535A7C500C99264 /* Tab Flow */,
 				DC4802182535F01F00C99264 /* Movies */,
 				DC2F5B722536DC4D004B8EE9 /* Actors */,
 				6B997A462536ED4E008AA4B3 /* Search */,
@@ -350,22 +350,22 @@
 			path = Features;
 			sourceTree = "<group>";
 		};
-		DC4801482535A7C500C99264 /* Dashboard */ = {
+		DC4801482535A7C500C99264 /* Tab Flow */ = {
 			isa = PBXGroup;
 			children = (
-				DC4801F72535E8AB00C99264 /* DashboardFlow.swift */,
+				DC4801F72535E8AB00C99264 /* TabFlow.swift */,
 			);
-			path = Dashboard;
+			path = "Tab Flow";
 			sourceTree = "<group>";
 		};
-		DC4801492535A7CF00C99264 /* App */ = {
+		DC4801492535A7CF00C99264 /* App Flow */ = {
 			isa = PBXGroup;
 			children = (
 				DC48015B2535A87500C99264 /* AppStep.swift */,
 				DC48014A2535A7D700C99264 /* AppFlow.swift */,
 				DC4801562535A81A00C99264 /* AppStepper.swift */,
 			);
-			path = App;
+			path = "App Flow";
 			sourceTree = "<group>";
 		};
 		DC4801522535A7FF00C99264 /* Services */ = {
@@ -630,7 +630,7 @@
 				6B3523F42535AA1B002A87DA /* APIClient.swift in Sources */,
 				6B997A482536ED5B008AA4B3 /* SearchFlow.swift in Sources */,
 				6B29CAAB2535C82400C1FCEA /* DependencyFactory.swift in Sources */,
-				DC4801F82535E8AB00C99264 /* DashboardFlow.swift in Sources */,
+				DC4801F82535E8AB00C99264 /* TabFlow.swift in Sources */,
 				DC2F5B7A2536DC6D004B8EE9 /* ActorListVC.swift in Sources */,
 				6B29CA9D2535C62900C1FCEA /* MovieServiceable.swift in Sources */,
 				DC48020E2535EA2B00C99264 /* MovieFlow.swift in Sources */,

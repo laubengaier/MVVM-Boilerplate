@@ -47,13 +47,13 @@ class AppFlow: Flow {
     }
 
     private func navigateToDashboard() -> FlowContributors {
-        let dashboardFlow = DashboardFlow(withDependencies: dependencies)
-        Flows.use(dashboardFlow, when: .created) { [unowned self] root in
+        let tabFlow = TabFlow(withDependencies: dependencies)
+        Flows.use(tabFlow, when: .created) { [unowned self] root in
             self.rootViewController.pushViewController(root, animated: false)
         }
         return .one(
             flowContributor: .contribute(
-                withNextPresentable: dashboardFlow,
+                withNextPresentable: tabFlow,
                 withNextStepper: OneStepper(withSingleStep: AppStep.dashboard)
             )
         )

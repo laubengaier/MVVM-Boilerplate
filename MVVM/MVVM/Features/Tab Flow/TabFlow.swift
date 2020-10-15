@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import RxFlow
 
-class DashboardFlow: Flow {
+class TabFlow: Flow {
     
     var root: Presentable {
         return self.rootViewController
