@@ -54,7 +54,7 @@ extension MovieProvider: APIProvider {
         switch self {
         case .nowPlaying: return Movie.sampleData()
         case .search(_): return Movie.sampleData()
-        case .details(_): return Data()
+        case .details(_): return MovieDetail.sampleData()
         }
     }
     
