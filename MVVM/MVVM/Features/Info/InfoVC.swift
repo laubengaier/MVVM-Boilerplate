@@ -38,3 +38,27 @@ class InfoVC : UIViewController {
     }
     
 }
+
+class SwiftUIViewController : UIViewController {
+    
+    let viewModel: InfoVM
+    
+    lazy var contentView = UIHostingController(rootView: InfoView(viewModel: viewModel))
+    
+    init(viewModel: InfoVM) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    required init?(coder: NSCoder) { return nil }
+ 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        addChild(contentView)
+        view.addSubview(contentView.view)
+        contentView.didMove(toParent: self)
+        contentView.view.snp.makeConstraints { (make) in
+            make.edges.equalTo(view)
+        }
+    }
+    
+}

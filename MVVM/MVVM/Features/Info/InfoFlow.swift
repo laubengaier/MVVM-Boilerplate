@@ -11,6 +11,7 @@ import RxFlow
 import RxSwift
 import RxCocoa
 import UIKit
+import SwiftUI
 
 class InfoFlow: Flow {
 
@@ -42,6 +43,8 @@ class InfoFlow: Flow {
             return navigateToInfo()
         case .infoAlert(let message):
             return navigateToInfoAlert(message)
+        case .infoDetail:
+            return navigateToInfoDetail()
         default:
             return .none
         }
@@ -67,10 +70,11 @@ class InfoFlow: Flow {
         return .none
     }
     
+    private func navigateToInfoDetail() -> FlowContributors {
+        let vc = UIHostingController(rootView: InfoDetailView())
+        rootViewController.pushViewController(vc, animated: true)
+        return .none
+    }
+    
 }
 
-class InfoFlowStepper: Stepper {
-
-    let steps = PublishRelay<Step>()
-
-}

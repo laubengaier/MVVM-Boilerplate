@@ -20,6 +20,7 @@ class InfoVM : Stepper {
     
     // SwiftUI
     @Published var alertMessage: String = ""
+    let showDetail = PassthroughSubject<Void, Never>()
     private var disposables = Set<AnyCancellable>()
     
     init(dependencies: Dependencies) {
@@ -31,5 +32,15 @@ class InfoVM : Stepper {
             self.steps.accept(AppStep.infoAlert(message: text))
         }
         .store(in: &disposables)
+        
+        showDetail
+        .sink { [weak self] () in
+            guard let self = self else { return }
+            self.steps.accept(AppStep.infoDetail)
+        }
+        .store(in: &disposables)
     }
+}
+class InfoFlowStepper: Stepper {
+    let steps = PublishRelay<Step>()
 }

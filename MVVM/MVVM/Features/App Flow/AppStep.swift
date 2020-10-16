@@ -24,5 +24,6 @@ enum AppStep: Step {
     // MARK: Info
     case info
     case infoAlert(message: String)
+    case infoDetail
 
 }
