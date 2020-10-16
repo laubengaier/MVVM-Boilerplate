@@ -7,12 +7,15 @@
 
 import Foundation
 import Moya
+import RxSwift
 
-
-
-public class APIClient {
+public final class APIClient {
     
     let apiKey: String
+    
+    private var isTestEnvironment: Bool {
+        return ProcessInfo.processInfo.environment["TEST"] == "1"
+    }
     
     init(apiKey: String){
         self.apiKey = apiKey
@@ -29,9 +32,26 @@ public class APIClient {
         // You can add more plugins
         let plugins = [tokenPlugin]
         
+        guard !self.isTestEnvironment else {
+            print("Stubbing each and every request.")
+            return MoyaProvider<T>(stubClosure: MoyaProvider<T>.immediatelyStub)
+        }
+        
         return MoyaProvider<T>(endpointClosure: endpointClosure,
                                requestClosure: requestClosure,
                                plugins: plugins)
+    }
+    
+    func handlePossibleErrors<T>(response: Response, errorType: T.Type) -> Observable<Response> where T: Error, T: Codable {
+        guard 200...299 ~= response.statusCode else {
+            do {
+                let errorResponse = try response.map(errorType)
+                return .error(errorResponse)
+            } catch {
+                return .error(error)
+            }
+        }
+        return .just(response)
     }
     
     private func createEndpointClosure<T: APIProvider>(for target: T.Type) -> MoyaProvider<T>.EndpointClosure {
@@ -58,5 +78,4 @@ public class APIClient {
         }
         return requestClosure
     }
-    
 }

@@ -52,9 +52,9 @@ extension MovieProvider: APIProvider {
     
     var sampleData: Data {
         switch self {
-        case .nowPlaying: return Data()
-        case .search(_): return Data()
-        case .details(_): return Data()
+        case .nowPlaying: return Movie.sampleData()
+        case .search(_): return Movie.sampleData()
+        case .details(_): return MovieDetail.sampleData()
         }
     }
     
@@ -64,36 +64,24 @@ extension MovieProvider: APIProvider {
     
 }
 
-
 public class MovieService: MovieServicable {
     
-    typealias Dependencies = HasAPIClient
-    
-    let dependencies: Dependencies
+    public let apiClient: APIClient
     
     let movieProvider: MoyaProvider<MovieProvider>
     
-    init(dependencies: Dependencies){
-        self.dependencies = dependencies
-        self.movieProvider = self.dependencies.apiClient.createProvider(for: MovieProvider.self)
+    init(apiClient: APIClient){
+        self.apiClient = apiClient
+        self.movieProvider = self.apiClient.createProvider(for: MovieProvider.self)
     }
     
     public func nowPlaying() -> Single<[Movie]> {
         let request = self.movieProvider.rx.request(.nowPlaying)
-        
         return request
         .asObservable()
         .flatMap { (response) -> Observable<Response> in
-            guard 200...299 ~= response.statusCode else {
-                do {
-                    print("Error happened while fetching Now Playing")
-                    let errorResponse = try response.map(MovieError.self)
-                    throw errorResponse
-                } catch {
-                    throw error
-                }
-            }
-            return .just(response)
+            self.apiClient
+                .handlePossibleErrors(response: response, errorType: MovieError.self)
         }
         .map(MovieResultWrapper.self)
         .map({ $0.results })
@@ -106,16 +94,8 @@ public class MovieService: MovieServicable {
         return request
         .asObservable()
         .flatMap { (response) -> Observable<Response> in
-            guard 200...299 ~= response.statusCode else {
-                do {
-                    print("Error happened while fetching Now Playing")
-                    let errorResponse = try response.map(MovieError.self)
-                    throw errorResponse
-                } catch {
-                    throw error
-                }
-            }
-            return .just(response)
+            return self.apiClient
+                .handlePossibleErrors(response: response, errorType: MovieError.self)
         }
         .map(MovieResultWrapper.self)
         .map({ $0.results })
@@ -128,16 +108,8 @@ public class MovieService: MovieServicable {
         return request
         .asObservable()
         .flatMap { (response) -> Observable<Response> in
-            guard 200...299 ~= response.statusCode else {
-                do {
-                    print("Error happened while fetching Now Playing")
-                    let errorResponse = try response.map(MovieError.self)
-                    throw errorResponse
-                } catch {
-                    throw error
-                }
-            }
-            return .just(response)
+            return self.apiClient
+                .handlePossibleErrors(response: response, errorType: MovieError.self)
         }
         .map(MovieDetail.self)
         .asSingle()

@@ -125,3 +125,6 @@ extension MovieDetail {
         return url
     }
 }
+
+// MARK: - Mockable
+extension MovieDetail: Mockable {}

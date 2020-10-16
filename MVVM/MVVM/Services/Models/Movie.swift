@@ -76,3 +76,6 @@ extension Movie {
         return url
     }
 }
+
+// MARK: - Mockable
+extension Movie: Mockable {}

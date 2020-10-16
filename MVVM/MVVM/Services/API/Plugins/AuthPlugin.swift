@@ -8,6 +8,9 @@
 import Foundation
 import Moya
 
+/**
+ You could use this plugin to make sure a Authorization header get's set whenever it's needed.
+ */
 struct AuthPlugin: PluginType {
     
     // Pass a function which returns the current valid access token.
