@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 import RxFlow
 import RxSwift
 import RxCocoa
@@ -39,6 +40,8 @@ class InfoFlow: Flow {
         switch step {
         case .info:
             return navigateToInfo()
+        case .infoAlert(let message):
+            return navigateToInfoAlert(message)
         default:
             return .none
         }
@@ -55,6 +58,13 @@ class InfoFlow: Flow {
                 withNextStepper: vm
             )
         )
+    }
+    
+    private func navigateToInfoAlert(_ message: String) -> FlowContributors {
+        let alertVc = UIAlertController(title: "Warning", message: message, preferredStyle: .alert)
+        alertVc.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+        rootViewController.present(alertVc, animated: true, completion: nil)
+        return .none
     }
     
 }

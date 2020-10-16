@@ -13,7 +13,7 @@ class InfoVC : UIViewController {
     
     let viewModel: InfoVM
     
-    let contentView = UIHostingController(rootView: InfoView())
+    lazy var contentView = UIHostingController(rootView: InfoView(viewModel: viewModel))
     
     init(viewModel: InfoVM) {
         self.viewModel = viewModel
