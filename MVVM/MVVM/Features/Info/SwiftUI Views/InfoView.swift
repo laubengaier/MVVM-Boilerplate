@@ -17,10 +17,13 @@ struct InfoView: View {
     
     var body: some View {
         VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 20) {
+            
             Text("Welcome").font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
             Text("This ViewController\nis made with SwiftUI!")
             .multilineTextAlignment(.center)
+            
             Divider()
+            
             Button("Detail") {
                 viewModel?.showDetail.send(())
             }

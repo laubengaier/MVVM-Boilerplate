@@ -33,6 +33,7 @@
 		DC43791225397902001F3C3B /* InfoFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC43791125397902001F3C3B /* InfoFlow.swift */; };
 		DC43791D25397B4C001F3C3B /* InfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC43791C25397B4C001F3C3B /* InfoVC.swift */; };
 		DC43792F25399168001F3C3B /* InfoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC43792E25399167001F3C3B /* InfoDetailView.swift */; };
+		DC4379352539A006001F3C3B /* RxSwift+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4379342539A005001F3C3B /* RxSwift+Extensions.swift */; };
 		DC4800F62535A3CD00C99264 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4800F52535A3CD00C99264 /* AppDelegate.swift */; };
 		DC4800F82535A3CD00C99264 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4800F72535A3CD00C99264 /* SceneDelegate.swift */; };
 		DC4800FA2535A3CD00C99264 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4800F92535A3CD00C99264 /* ViewController.swift */; };
@@ -109,6 +110,7 @@
 		DC43791125397902001F3C3B /* InfoFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoFlow.swift; sourceTree = "<group>"; };
 		DC43791C25397B4C001F3C3B /* InfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVC.swift; sourceTree = "<group>"; };
 		DC43792E25399167001F3C3B /* InfoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoDetailView.swift; sourceTree = "<group>"; };
+		DC4379342539A005001F3C3B /* RxSwift+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RxSwift+Extensions.swift"; sourceTree = "<group>"; };
 		DC4800F22535A3CD00C99264 /* MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC4800F52535A3CD00C99264 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC4800F72535A3CD00C99264 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -304,6 +306,14 @@
 			path = "SwiftUI Views";
 			sourceTree = "<group>";
 		};
+		DC43793325399FE1001F3C3B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DC4379342539A005001F3C3B /* RxSwift+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		DC4800E92535A3CD00C99264 = {
 			isa = PBXGroup;
 			children = (
@@ -334,6 +344,7 @@
 				DC4801472535A7BF00C99264 /* Features */,
 				DC4800F92535A3CD00C99264 /* ViewController.swift */,
 				6B4275622535B48F00434A5C /* HasProtocols */,
+				DC43793325399FE1001F3C3B /* Extensions */,
 				DC48012B2535A4CB00C99264 /* Resources */,
 			);
 			path = MVVM;
@@ -636,6 +647,7 @@
 				DC4800FA2535A3CD00C99264 /* ViewController.swift in Sources */,
 				6B997A512536ED75008AA4B3 /* SearchListVM.swift in Sources */,
 				DC48015C2535A87500C99264 /* AppStep.swift in Sources */,
+				DC4379352539A006001F3C3B /* RxSwift+Extensions.swift in Sources */,
 				DC437908253977CB001F3C3B /* InfoView.swift in Sources */,
 				DC2F5B752536DC65004B8EE9 /* ActorListVM.swift in Sources */,
 				DC48014B2535A7D700C99264 /* AppFlow.swift in Sources */,
