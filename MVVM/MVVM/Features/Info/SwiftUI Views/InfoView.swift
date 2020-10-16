@@ -25,14 +25,14 @@ struct InfoView: View {
                 viewModel?.showDetail.send(())
             }
             .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
-            .background(Color(red: 0.8, green: 0.1, blue: 0.3))
+            .background(Color.green)
             .foregroundColor(.black)
             .cornerRadius(10)
             Button("Noice") {
                 viewModel?.alertMessage = "This is a noice nonense message."
             }
             .padding(EdgeInsets(top: 20, leading: 40, bottom: 20, trailing: 40))
-            .background(Color(red: 0.8, green: 0.1, blue: 0.3))
+            .background(Color.pink)
             .foregroundColor(.black)
             .cornerRadius(10)
         }
