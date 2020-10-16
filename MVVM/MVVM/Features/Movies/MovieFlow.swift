@@ -51,7 +51,7 @@ class MovieFlow: Flow {
         let vm = MovieListVM(dependencies: self.dependencies)
         let vc = MovieListVC(viewModel: vm)
         
-        self.rootViewController.pushViewController(vc, animated: true)
+        self.rootViewController.pushViewController(vc, animated: false)
         return .one(
             flowContributor: .contribute(
                 withNextPresentable: vc,

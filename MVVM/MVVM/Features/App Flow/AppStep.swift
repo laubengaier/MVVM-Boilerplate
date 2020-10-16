@@ -20,5 +20,8 @@ enum AppStep: Step {
     
     // MARK: Search
     case search
+    
+    // MARK: Info
+    case info
 
 }

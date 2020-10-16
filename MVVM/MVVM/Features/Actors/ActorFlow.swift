@@ -48,7 +48,7 @@ class ActorFlow: Flow {
         let vm = ActorListVM(dependencies: self.dependencies)
         let vc = ActorListVC(viewModel: vm)
         
-        self.rootViewController.pushViewController(vc, animated: true)
+        self.rootViewController.pushViewController(vc, animated: false)
         return .one(
             flowContributor: .contribute(
                 withNextPresentable: vc,

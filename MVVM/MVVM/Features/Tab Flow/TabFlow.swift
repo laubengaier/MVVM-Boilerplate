@@ -44,15 +44,23 @@ class TabFlow: Flow {
     private func navigateToDashboard() -> FlowContributors {
         
         let movieStepper = MovieStepper()
-        let movieFlow = MovieFlow(withDependencies: self.dependencies, andStepper: movieStepper)
+        let movieFlow = MovieFlow(withDependencies: dependencies, andStepper: movieStepper)
         
         let actorsStepper = ActorFlowStepper()
-        let actorFlow = ActorFlow(withDependencies: self.dependencies)
+        let actorFlow = ActorFlow(withDependencies: dependencies)
         
         let searchStepper = SearchFlowStepper()
-        let searchFlow = SearchFlow(withDependencies: self.dependencies)
+        let searchFlow = SearchFlow(withDependencies: dependencies)
+        
+        let infoStepper = InfoFlowStepper()
+        let infoFlow = InfoFlow(withDependencies: dependencies)
 
-        Flows.use(movieFlow, actorFlow, searchFlow, when: .created) { [unowned self] (root1: UINavigationController, root2: UINavigationController, root3: UINavigationController) in
+        Flows.use(movieFlow, actorFlow, searchFlow, infoFlow, when: .created) { [unowned self] (
+            root1: UINavigationController,
+            root2: UINavigationController,
+            root3: UINavigationController,
+            root4: UINavigationController
+        ) in
             let tabBarItem1 = UITabBarItem(title: "MovieList", image: UIImage(systemName: "house"), selectedImage: nil)
             root1.tabBarItem = tabBarItem1
             root1.title = "Movie List"
@@ -64,8 +72,12 @@ class TabFlow: Flow {
             let tabBarItem3 = UITabBarItem(title: "Suche", image: UIImage(systemName: "magnifyingglass"), selectedImage: nil)
             root3.tabBarItem = tabBarItem3
             root3.title = "Suche"
+            
+            let tabBarItem4 = UITabBarItem(title: "Info", image: UIImage(systemName: "info.circle"), selectedImage: nil)
+            root4.tabBarItem = tabBarItem4
+            root4.title = "Info"
 
-            self.rootViewController.setViewControllers([root1, root2, root3], animated: false)
+            self.rootViewController.setViewControllers([root1, root2, root3, root4], animated: false)
         }
 
         return .multiple(
@@ -78,8 +90,13 @@ class TabFlow: Flow {
                     withNextPresentable: actorFlow,
                     withNextStepper: CompositeStepper(steppers: [OneStepper(withSingleStep: AppStep.actorList), actorsStepper])
                 ),
-                .contribute(withNextPresentable: searchFlow,
-                            withNextStepper: CompositeStepper(steppers: [OneStepper(withSingleStep: AppStep.search), searchStepper])
+                .contribute(
+                    withNextPresentable: searchFlow,
+                    withNextStepper: CompositeStepper(steppers: [OneStepper(withSingleStep: AppStep.search), searchStepper])
+                ),
+                .contribute(
+                    withNextPresentable: infoFlow,
+                    withNextStepper: CompositeStepper(steppers: [OneStepper(withSingleStep: AppStep.info), infoStepper])
                 ),
             ]
         )

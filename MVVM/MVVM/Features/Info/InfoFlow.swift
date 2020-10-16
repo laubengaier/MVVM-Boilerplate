@@ -1,8 +1,8 @@
 //
-//  SearchFlow.swift
+//  InfoFlow.swift
 //  MVVM
 //
-//  Created by Mario Zimmermann on 14.10.20.
+//  Created by Timotheus Laubengaier on 16.10.20.
 //
 
 import Foundation
@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import UIKit
 
-class SearchFlow: Flow {
+class InfoFlow: Flow {
 
     var root: Presentable {
         return self.rootViewController
@@ -37,33 +37,18 @@ class SearchFlow: Flow {
         guard let step = step as? AppStep else { return .none }
 
         switch step {
-        case .search:
-            return navigateToSearch()
-        case .movieDetail(let id):
-            return self.navigateToMovieDetail(id: id)
+        case .info:
+            return navigateToInfo()
         default:
             return .none
         }
     }
 
-    private func navigateToSearch() -> FlowContributors {
-        let vm = SearchListVM(dependencies: self.dependencies)
-        let vc = SearchListVC(viewModel: vm)
+    private func navigateToInfo() -> FlowContributors {
+        let vm = InfoVM(dependencies: dependencies)
+        let vc = InfoVC(viewModel: vm)
         
-        self.rootViewController.pushViewController(vc, animated: false)
-        return .one(
-            flowContributor: .contribute(
-                withNextPresentable: vc,
-                withNextStepper: vm
-            )
-        )
-    }
-    
-    private func navigateToMovieDetail(id: Int) -> FlowContributors {
-        let vm = MovieDetailVM(dependencies: self.dependencies, movieId: id)
-        let vc = MovieDetailVC(viewModel: vm)
-        
-        self.rootViewController.pushViewController(vc, animated: true)
+        self.rootViewController.setViewControllers([vc], animated: false)
         return .one(
             flowContributor: .contribute(
                 withNextPresentable: vc,
@@ -74,7 +59,7 @@ class SearchFlow: Flow {
     
 }
 
-class SearchFlowStepper: Stepper {
+class InfoFlowStepper: Stepper {
 
     let steps = PublishRelay<Step>()
 
